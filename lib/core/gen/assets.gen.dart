@@ -9,6 +9,184 @@
 // ignore_for_file: type=lint
 // ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
+import 'package:flutter/widgets.dart';
+
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf
+  String get interItalicVariableFontOpszWght =>
+      'assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf';
+
+  /// File path: assets/fonts/Inter-VariableFont_opsz,wght.ttf
+  String get interVariableFontOpszWght =>
+      'assets/fonts/Inter-VariableFont_opsz,wght.ttf';
+
+  /// List of all assets
+  List<String> get values => [
+    interItalicVariableFontOpszWght,
+    interVariableFontOpszWght,
+  ];
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/Logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/Logo.png');
+
+  /// File path: assets/images/Splash_Light.png
+  AssetGenImage get splashLight =>
+      const AssetGenImage('assets/images/Splash_Light.png');
+
+  /// File path: assets/images/evently_logo_top.png
+  AssetGenImage get eventlyLogoTop =>
+      const AssetGenImage('assets/images/evently_logo_top.png');
+
+  /// File path: assets/images/first_image_of_intro_1.png
+  AssetGenImage get firstImageOfIntro1 =>
+      const AssetGenImage('assets/images/first_image_of_intro_1.png');
+
+  /// File path: assets/images/first_image_of_intro_1_dark.png
+  AssetGenImage get firstImageOfIntro1Dark =>
+      const AssetGenImage('assets/images/first_image_of_intro_1_dark.png');
+
+  /// File path: assets/images/forgot_password_image.png
+  AssetGenImage get forgotPasswordImage =>
+      const AssetGenImage('assets/images/forgot_password_image.png');
+
+  /// File path: assets/images/fourth_image_of_intro_4.png
+  AssetGenImage get fourthImageOfIntro4 =>
+      const AssetGenImage('assets/images/fourth_image_of_intro_4.png');
+
+  /// File path: assets/images/fourth_image_of_intro_4_dark.png
+  AssetGenImage get fourthImageOfIntro4Dark =>
+      const AssetGenImage('assets/images/fourth_image_of_intro_4_dark.png');
+
+  /// File path: assets/images/route_logo_splash_footer.png
+  AssetGenImage get routeLogoSplashFooter =>
+      const AssetGenImage('assets/images/route_logo_splash_footer.png');
+
+  /// File path: assets/images/second_image_of_intro_2.png
+  AssetGenImage get secondImageOfIntro2 =>
+      const AssetGenImage('assets/images/second_image_of_intro_2.png');
+
+  /// File path: assets/images/third_image_of_intro_3.png
+  AssetGenImage get thirdImageOfIntro3 =>
+      const AssetGenImage('assets/images/third_image_of_intro_3.png');
+
+  /// File path: assets/images/third_image_of_intro_3_dark.png
+  AssetGenImage get thirdImageOfIntro3Dark =>
+      const AssetGenImage('assets/images/third_image_of_intro_3_dark.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    logo,
+    splashLight,
+    eventlyLogoTop,
+    firstImageOfIntro1,
+    firstImageOfIntro1Dark,
+    forgotPasswordImage,
+    fourthImageOfIntro4,
+    fourthImageOfIntro4Dark,
+    routeLogoSplashFooter,
+    secondImageOfIntro2,
+    thirdImageOfIntro3,
+    thirdImageOfIntro3Dark,
+  ];
+}
+
 class Assets {
   const Assets._();
+
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
+}
+
+class AssetGenImage {
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+    this.animation,
+  });
+
+  final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
+  final AssetGenImageAnimation? animation;
+
+  Image image({
+    Key? key,
+    AssetBundle? bundle,
+    ImageFrameBuilder? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
+    bool excludeFromSemantics = false,
+    double? scale,
+    double? width,
+    double? height,
+    Color? color,
+    Animation<double>? opacity,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    Rect? centerSlice,
+    bool matchTextDirection = false,
+    bool gaplessPlayback = true,
+    bool isAntiAlias = false,
+    String? package,
+    FilterQuality filterQuality = FilterQuality.medium,
+    int? cacheWidth,
+    int? cacheHeight,
+  }) {
+    return Image.asset(
+      _assetName,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      semanticLabel: semanticLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
+      width: width,
+      height: height,
+      color: color,
+      opacity: opacity,
+      colorBlendMode: colorBlendMode,
+      fit: fit,
+      alignment: alignment,
+      repeat: repeat,
+      centerSlice: centerSlice,
+      matchTextDirection: matchTextDirection,
+      gaplessPlayback: gaplessPlayback,
+      isAntiAlias: isAntiAlias,
+      package: package,
+      filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class AssetGenImageAnimation {
+  const AssetGenImageAnimation({
+    required this.isAnimation,
+    required this.duration,
+    required this.frames,
+  });
+
+  final bool isAnimation;
+  final Duration duration;
+  final int frames;
 }
