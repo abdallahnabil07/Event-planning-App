@@ -32,12 +32,26 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/EG.png
+  AssetGenImage get eg => const AssetGenImage('assets/images/EG.png');
+
   /// File path: assets/images/Logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/Logo.png');
 
-  /// File path: assets/images/Splash_Light.png
-  AssetGenImage get splashLight =>
-      const AssetGenImage('assets/images/Splash_Light.png');
+  /// File path: assets/images/Logo_edit.png
+  AssetGenImage get logoEdit =>
+      const AssetGenImage('assets/images/Logo_edit.png');
+
+  /// File path: assets/images/Moon_dark_mode.png
+  AssetGenImage get moonDarkMode =>
+      const AssetGenImage('assets/images/Moon_dark_mode.png');
+
+  /// File path: assets/images/Sun_light_mood.png
+  AssetGenImage get sunLightMood =>
+      const AssetGenImage('assets/images/Sun_light_mood.png');
+
+  /// File path: assets/images/USA.png
+  AssetGenImage get usa => const AssetGenImage('assets/images/USA.png');
 
   /// File path: assets/images/evently_logo_top.png
   AssetGenImage get eventlyLogoTop =>
@@ -81,8 +95,12 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    eg,
     logo,
-    splashLight,
+    logoEdit,
+    moonDarkMode,
+    sunLightMood,
+    usa,
     eventlyLogoTop,
     firstImageOfIntro1,
     firstImageOfIntro1Dark,
