@@ -1,6 +1,6 @@
 import 'package:eventy_app/core/routes/app_routes_name.dart';
+import 'package:eventy_app/model/onBoarding/on_boarding_fourth.dart';
 import 'package:eventy_app/model/onBoarding/on_boarding_second_page.dart';
-import 'package:eventy_app/model/onBoarding/widget/on_boarding_fourth.dart';
 import 'package:eventy_app/model/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,7 @@
 import 'package:eventy_app/model/onBoarding/widget/custom_image_and_title_and_details.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/gen/assets.gen.dart';
+import '../../core/gen/assets.gen.dart';
 
 class OnBoardingFourth extends StatefulWidget {
   const OnBoardingFourth({super.key});
