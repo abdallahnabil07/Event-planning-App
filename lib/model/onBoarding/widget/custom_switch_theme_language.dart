@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/gen/assets.gen.dart';
+import '../../../core/theme/app_colors.dart';
 
 class CustomSwitchThemeLanguage extends StatelessWidget {
   final String textTitle;
@@ -42,8 +43,13 @@ class CustomSwitchThemeLanguage extends StatelessWidget {
           width: sizeW * 0.18,
           height: sizeH * 0.034,
           decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: BoxBorder.all(
+              color: AppColors.primaryColor,
+              width: 2,
+
+            ),
             borderRadius: BorderRadius.circular(30),
-            color: backGroundColor,
           ),
           child: Row(
             children: [

@@ -19,7 +19,6 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
-    final theme = Theme.of(context).textTheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final image = isDark
         ? Assets.images.firstImageOfIntro1Dark
@@ -83,11 +82,10 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
             onTop: () {},
             leftImage: Assets.images.moonDarkMode,
           ),
-
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: sizeW * 0.041,
-              vertical: sizeH * 0.031,
+              vertical: sizeH * 0.022,
             ),
             child: CustomElevatedButton(
               textButton: "Let's Start",
@@ -95,11 +93,11 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  AppRoutesName.onBoardingSecondPage,
-                );
+                    AppRoutesName.customSmoothPageIndicator);
               },
             ),
           ),
+
         ],
       ),
     );

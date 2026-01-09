@@ -49,7 +49,9 @@ abstract class AppTheme {
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.whiteColor,
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      foregroundColor: AppColors.primaryColor,
       titleTextStyle: TextStyle(
         fontFamily: "inter",
         fontWeight: FontWeight.w400,
