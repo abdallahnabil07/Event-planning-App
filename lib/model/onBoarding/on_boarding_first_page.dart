@@ -1,4 +1,5 @@
 import 'package:eventy_app/components/custom_elevated_button.dart';
+import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/routes/app_routes_name.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
@@ -50,7 +51,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               height: sizeH * 0.027,
               child: Text(
                 textAlign: TextAlign.start,
-                "Personalize Your Experience",
+                context.appLocalizations.firstOnBoardingTitle,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -63,20 +64,20 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
             ),
             child: Text(
               textAlign: TextAlign.start,
-              "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+              context.appLocalizations.firstOnBoardingDetails,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           // SizedBox(height: 8),
           CustomSwitchThemeLanguage(
-            textTitle: "Language",
+            textTitle: context.appLocalizations.language,
             rightImage: Assets.images.usa,
             backGroundColor: AppColors.primaryColor,
             onTop: () {},
             leftImage: Assets.images.eg,
           ),
           CustomSwitchThemeLanguage(
-            textTitle: "Theme",
+            textTitle: context.appLocalizations.theme,
             rightImage: Assets.images.sunLightMood,
             backGroundColor: AppColors.redColor,
             onTop: () {},
@@ -88,7 +89,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               vertical: sizeH * 0.022,
             ),
             child: CustomElevatedButton(
-              textButton: "Let's Start",
+              textButton: context.appLocalizations.letsStart,
               backgroundColor: AppColors.primaryColor,
               onPressed: () {
                 Navigator.pushNamed(

@@ -1,6 +1,6 @@
 import 'package:eventy_app/components/custom_elevated_button.dart';
 import 'package:eventy_app/components/custom_text_field.dart';
-import 'package:eventy_app/core/extensions/media_query_and_theme_extensions.dart';
+import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
         ? AppColors.whiteColor
         : AppColors.blackColor;
     return Scaffold(
-      appBar: AppBar(title: Text("Register")),
+      appBar: AppBar(title: Text(context.appLocalizations.register,)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -40,7 +40,7 @@ class _SignUpState extends State<SignUp> {
               bottom: sizeH * 0.018,
             ),
             child: CustomTextField(
-              hintText: "Name",
+              hintText: context.appLocalizations.name,
               icon: Assets.icons.personIcon,
             ),
           ),
@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
               bottom: sizeH * 0.018,
             ),
             child: CustomTextField(
-              hintText: "Email",
+              hintText: context.appLocalizations.email,
               icon: Assets.icons.emailIcon,
             ),
           ),
@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
               bottom: sizeH * 0.018,
             ),
             child: CustomTextField(
-              hintText: "Password",
+              hintText: context.appLocalizations.password,
               icon: Assets.icons.lockIcon,
               isPassword: true,
             ),
@@ -73,7 +73,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: EdgeInsets.only(left: sizeW * 0.041, right: sizeW * 0.041),
             child: CustomTextField(
-              hintText: "Re Password",
+              hintText: context.appLocalizations.rePassword,
               icon: Assets.icons.lockIcon,
               isPassword: true,
             ),
@@ -85,15 +85,15 @@ class _SignUpState extends State<SignUp> {
               vertical: sizeH * 0.022,
             ),
             child: CustomElevatedButton(
-              textButton: "Create Account",
+              textButton: context.appLocalizations.createAccount,
               backgroundColor: AppColors.primaryColor,
               onPressed: () {},
             ),
           ),
           //already have account
           RichTextSignUpIn(
-            firstText: "Already Have Account? ",
-            secondText: 'Login',
+            firstText: context.appLocalizations.alreadyHaveAccount,
+            secondText: context.appLocalizations.login,
             onPressed: () {
               Navigator.pushNamed(context, AppRoutesName.signIn);
             },

@@ -8,11 +8,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.4.7
   smooth_page_indicator: ^2.0.1
   flutter_svg: ^2.0.9
   vector_graphics: ^1.1.11
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +36,7 @@ flutter:
 
 
   uses-material-design: true
+  generate: true
 
 
   assets:

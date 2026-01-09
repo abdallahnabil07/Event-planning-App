@@ -1,4 +1,4 @@
-import 'package:eventy_app/core/extensions/media_query_and_theme_extensions.dart';
+import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     final sizeW = context.width;
     final sizeH = context.height;
     return Scaffold(
-      appBar: AppBar(title: Text("Forget Password")),
+      appBar: AppBar(title: Text(context.appLocalizations.resetPassword,)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -29,7 +29,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               vertical: sizeH * 0.022,
             ),
             child: CustomElevatedButton(
-              textButton: "Reset Password",
+              textButton: context.appLocalizations.resetPassword,
               backgroundColor: AppColors.primaryColor,
               onPressed: () {},
             ),

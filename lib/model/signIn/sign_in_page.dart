@@ -5,6 +5,7 @@ import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:eventy_app/custom_widget/custom_full_logo_top_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 import '../../custom_widget/rich_text_sign_up_in.dart';
 
@@ -40,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
               bottom: sizeH * 0.018,
             ),
             child: CustomTextField(
-              hintText: "Email",
+              hintText: context.appLocalizations.email,
               icon: Assets.icons.emailIcon,
               isPassword: false,
             ),
@@ -53,7 +54,7 @@ class _SignInPageState extends State<SignInPage> {
               bottom: sizeH * 0.018,
             ),
             child: CustomTextField(
-              hintText: "Password",
+              hintText: context.appLocalizations.password,
               icon: Assets.icons.lockIcon,
               isPassword: true,
             ),
@@ -68,7 +69,7 @@ class _SignInPageState extends State<SignInPage> {
                   Navigator.pushNamed(context, AppRoutesName.forgetPassword);
                 },
                 child: Text(
-                  "Forget Password?",
+                  context.appLocalizations.forgetPassword,
                   style: theme.titleMedium!.copyWith(
                     fontWeight: FontWeight.w700,
                     color: AppColors.primaryColor,
@@ -87,15 +88,15 @@ class _SignInPageState extends State<SignInPage> {
               vertical: sizeH * 0.022,
             ),
             child: CustomElevatedButton(
-              textButton: "Login",
+              textButton: context.appLocalizations.login,
               backgroundColor: AppColors.primaryColor,
               onPressed: () {},
             ),
           ),
           //don't have account
           RichTextSignUpIn(
-            firstText: "Don't Have Account? ",
-            secondText: 'Create Account',
+            firstText: context.appLocalizations.dontHaveAccount,
+            secondText: context.appLocalizations.createAccount,
             onPressed: () {
               Navigator.pushNamed(context, AppRoutesName.signUp);
             },
@@ -119,7 +120,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
                 Text(
-                  "Or",
+                  context.appLocalizations.or,
                   style: theme.titleMedium!.copyWith(
                     color: AppColors.primaryColor,
                   ),
@@ -145,7 +146,7 @@ class _SignInPageState extends State<SignInPage> {
               textColor: AppColors.primaryColor,
               addIcon: true,
               icon: Assets.icons.googleIcon,
-              textButton: "Login with Google",
+              textButton: context.appLocalizations.lognByGoogle,
               backgroundColor: Colors.transparent,
               onPressed: () {},
             ),

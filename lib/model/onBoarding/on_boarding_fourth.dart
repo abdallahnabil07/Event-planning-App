@@ -1,6 +1,7 @@
 import 'package:eventy_app/model/onBoarding/widget/custom_image_and_title_and_details.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 
 class OnBoardingFourth extends StatefulWidget {
@@ -20,9 +21,8 @@ class _OnBoardingFourthState extends State<OnBoardingFourth> {
     return Scaffold(
       body: CustomImageAndTitleAndDetails(
         image: image,
-        title: 'Connect with Friends & Share Moments',
-        details:
-            "Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.",
+        title: context.appLocalizations.fourthOnBoardingTitle,
+        details: context.appLocalizations.fourthOnBoardingDetails,
       ),
     );
   }

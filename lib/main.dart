@@ -3,6 +3,8 @@ import 'package:eventy_app/core/routes/app_routes_name.dart';
 import 'package:eventy_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+import 'core/l10n/app_localizations.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -18,8 +20,11 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightMode,
       darkTheme: AppTheme.darkMode,
       title: "Event app",
-      initialRoute: AppRoutesName.splash,
+      initialRoute: AppRoutesName.onBoardingFirstPage,
       onGenerateRoute: AppRoutes.generateRoute,
+      locale: Locale('ar'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

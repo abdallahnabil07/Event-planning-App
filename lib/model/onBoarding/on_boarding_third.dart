@@ -1,6 +1,7 @@
 import 'package:eventy_app/model/onBoarding/widget/custom_image_and_title_and_details.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 
 class OnBoardingThird extends StatefulWidget {
@@ -20,9 +21,8 @@ class _OnBoardingThirdState extends State<OnBoardingThird> {
     return Scaffold(
       body: CustomImageAndTitleAndDetails(
         image: image,
-        title: 'Effortless Event Planning',
-        details:
-            "Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.",
+        title: context.appLocalizations.thirdOnBoardingTitle,
+        details: context.appLocalizations.thirdOnBoardingDetails,
       ),
     );
   }

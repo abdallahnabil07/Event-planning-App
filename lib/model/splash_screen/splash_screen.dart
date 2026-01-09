@@ -1,3 +1,4 @@
+import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
 import 'package:eventy_app/core/routes/app_routes_name.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: EdgeInsets.only(bottom: sizeH * 0.035),
               child: Text(
                 textAlign: TextAlign.center,
-                "Supervised by Mohamed Nabil",
+                context.appLocalizations.supervisedByMohamedNabil,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,

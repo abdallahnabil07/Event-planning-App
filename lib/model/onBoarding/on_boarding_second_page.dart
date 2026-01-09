@@ -1,6 +1,7 @@
 import 'package:eventy_app/model/onBoarding/widget/custom_image_and_title_and_details.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 
 class OnBoardingSecondPage extends StatefulWidget {
@@ -16,9 +17,8 @@ class _OnBoardingSecondPageState extends State<OnBoardingSecondPage> {
     return Scaffold(
       body: CustomImageAndTitleAndDetails(
         image: Assets.images.secondImageOfIntro2,
-        title: 'Find Events That Inspire You',
-        details:
-            "Dive into a world of events crafted to fit your unique interests. Whether you're into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.",
+        title: context.appLocalizations.secondOnBoardingTitle,
+        details: context.appLocalizations.secondOnBoardingDetails,
       ),
     );
   }
