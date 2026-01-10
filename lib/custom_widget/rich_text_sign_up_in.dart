@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/extensions/media_query_and_theme_localizations_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 
 class RichTextSignUpIn extends StatelessWidget {
   final String firstText;

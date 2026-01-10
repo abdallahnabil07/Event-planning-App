@@ -42,14 +42,12 @@ class CustomImageAndTitleAndDetails extends StatelessWidget {
             left: sizeW * 0.041,
             right: sizeW * 0.041,
           ),
-          child: SizedBox(
-            height: sizeH * 0.027,
-            child: Text(
+
+          child: Text(
               textAlign: TextAlign.start,
               title,
               style: theme.titleLarge,
             ),
-          ),
         ),
         Padding(
           padding: EdgeInsets.only(

@@ -87,4 +87,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';
+
+  @override
+  String get english => 'الأنجليزية';
+
+  @override
+  String get arabic => 'العربية';
+
+  @override
+  String get darkMode => 'داكن';
+
+  @override
+  String get lightMode => 'فاتح';
 }

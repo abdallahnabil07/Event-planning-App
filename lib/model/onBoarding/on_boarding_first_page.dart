@@ -1,12 +1,13 @@
 import 'package:eventy_app/components/custom_elevated_button.dart';
-import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
+import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/routes/app_routes_name.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
+import 'package:eventy_app/model/app_provider/app_settings_provider.dart';
+import 'package:eventy_app/model/onBoarding/widget/custom_drop_button_theme_language.dart';
 import 'package:eventy_app/model/onBoarding/widget/custom_logo_top_page.dart';
 import 'package:flutter/material.dart';
-
-import 'widget/custom_switch_theme_language.dart';
+import 'package:provider/provider.dart';
 
 class OnBoardingFirstPage extends StatefulWidget {
   const OnBoardingFirstPage({super.key});
@@ -18,6 +19,7 @@ class OnBoardingFirstPage extends StatefulWidget {
 class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
   @override
   Widget build(BuildContext context) {
+    final appSettingsProvider = Provider.of<AppSettingsProvider>(context);
     final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -29,6 +31,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CustomLogoTopPage(),
+          //image
           Padding(
             padding: EdgeInsets.only(
               top: sizeH * 0.072,
@@ -41,6 +44,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               child: image.image(fit: BoxFit.contain),
             ),
           ),
+          //title
           Padding(
             padding: EdgeInsets.only(
               top: sizeH * 0.031,
@@ -48,7 +52,6 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               right: sizeW * 0.041,
             ),
             child: SizedBox(
-              height: sizeH * 0.027,
               child: Text(
                 textAlign: TextAlign.start,
                 context.appLocalizations.firstOnBoardingTitle,
@@ -56,6 +59,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               ),
             ),
           ),
+          //details
           Padding(
             padding: EdgeInsets.only(
               top: sizeH * 0.031,
@@ -68,25 +72,63 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          // SizedBox(height: 8),
-          CustomSwitchThemeLanguage(
-            textTitle: context.appLocalizations.language,
-            rightImage: Assets.images.usa,
-            backGroundColor: AppColors.primaryColor,
-            onTop: () {},
-            leftImage: Assets.images.eg,
-          ),
-          CustomSwitchThemeLanguage(
-            textTitle: context.appLocalizations.theme,
-            rightImage: Assets.images.sunLightMood,
-            backGroundColor: AppColors.redColor,
-            onTop: () {},
-            leftImage: Assets.images.moonDarkMode,
-          ),
+          //language
           Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: sizeW * 0.041,
-              vertical: sizeH * 0.022,
+            padding: EdgeInsets.only(
+              left: sizeW * 0.041,
+              right: sizeW * 0.041,
+              bottom: sizeH * 0.018,
+            ),
+            child: CustomDropButtonThemeLanguage(
+              titleText: context.appLocalizations.language,
+              itemImage: Assets.images.eg,
+              firstItemText: context.appLocalizations.arabic,
+              secondItemText: context.appLocalizations.english,
+              firstValueImage: Assets.images.eg,
+              secondValueImage: Assets.images.usa,
+              firstItemTextValue: "ar",
+              secondItemTextValue: "en",
+              onChanged: (String? value) {
+                appSettingsProvider.changeLanguage(value!);
+              },
+            ),
+          ),
+          //theme
+          Padding(
+            padding: EdgeInsets.only(
+              left: sizeW * 0.041,
+              right: sizeW * 0.041,
+              bottom: sizeH * 0.031,
+            ),
+            child: CustomDropButtonThemeLanguage(
+              colorFirstValueImage: AppColors.darkModeColor,
+              colorSecondValueImage: Colors.amber,
+              titleText: context.appLocalizations.theme,
+              itemImage: Assets.images.sunLightMood,
+              colorImage: AppColors.primaryColor,
+              firstItemText: context.appLocalizations.darkMode,
+              secondItemText: context.appLocalizations.lightMode,
+              firstItemTextValue: "dark",
+              secondItemTextValue: "light",
+              firstValueImage: Assets.images.moonDarkMode,
+              secondValueImage: Assets.images.sunLightMood,
+              onChanged: (String? value) {
+                if (value == "dark") {
+                  appSettingsProvider.changeTheme(ThemeMode.dark);
+                } else if (value == "light") {
+                  appSettingsProvider.changeTheme(ThemeMode.light);
+                } else {
+                  appSettingsProvider.changeTheme(ThemeMode.system);
+                }
+              },
+            ),
+          ),
+          //elevated button
+          Padding(
+            padding: EdgeInsets.only(
+              left: sizeW * 0.041,
+              right: sizeW * 0.041,
+              bottom: sizeH * 0.019,
             ),
             child: CustomElevatedButton(
               textButton: context.appLocalizations.letsStart,
@@ -94,11 +136,11 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                    AppRoutesName.customSmoothPageIndicator);
+                  AppRoutesName.customSmoothPageIndicator,
+                );
               },
             ),
           ),
-
         ],
       ),
     );

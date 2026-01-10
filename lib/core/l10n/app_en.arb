@@ -23,5 +23,9 @@
   "createAccount": "Create Account",
   "or": "Or",
   "lognByGoogle": "Sign in with Google",
-  "alreadyHaveAccount": "Already have an account?"
+  "alreadyHaveAccount": "Already have an account?",
+  "english": "English",
+  "arabic": "Arabic",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode"
 }

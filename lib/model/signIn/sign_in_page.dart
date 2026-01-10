@@ -5,7 +5,7 @@ import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:eventy_app/custom_widget/custom_full_logo_top_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 import '../../custom_widget/rich_text_sign_up_in.dart';
 
@@ -28,6 +28,7 @@ class _SignInPageState extends State<SignInPage> {
         : AppColors.blackColor;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -114,7 +115,7 @@ class _SignInPageState extends State<SignInPage> {
                 Expanded(
                   child: Divider(
                     color: AppColors.primaryColor,
-                    thickness: 1,
+                    thickness: 2,
                     endIndent: 20,
                     indent: 20,
                   ),
@@ -128,7 +129,7 @@ class _SignInPageState extends State<SignInPage> {
                 Expanded(
                   child: Divider(
                     color: AppColors.primaryColor,
-                    thickness: 1,
+                    thickness: 2,
                     endIndent: 20,
                     indent: 20,
                   ),

@@ -1,6 +1,6 @@
 import 'package:eventy_app/components/custom_elevated_button.dart';
 import 'package:eventy_app/components/custom_text_field.dart';
-import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
+import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +27,7 @@ class _SignUpState extends State<SignUp> {
         ? AppColors.whiteColor
         : AppColors.blackColor;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(title: Text(context.appLocalizations.register,)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,7 +1,7 @@
 import 'package:eventy_app/model/onBoarding/widget/custom_image_and_title_and_details.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/extensions/media_query_and_theme_localizations_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../../core/gen/assets.gen.dart';
 
 class OnBoardingThird extends StatefulWidget {

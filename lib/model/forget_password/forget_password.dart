@@ -1,4 +1,4 @@
-import 'package:eventy_app/core/extensions/media_query_and_theme_localizations_extensions.dart';
+import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 

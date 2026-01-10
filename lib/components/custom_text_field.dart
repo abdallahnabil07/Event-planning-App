@@ -7,12 +7,14 @@ class CustomTextField extends StatefulWidget {
   final String hintText;
   final SvgGenImage icon;
   final bool? isPassword;
+  final TextEditingController? controller;
 
   const CustomTextField({
     super.key,
     required this.hintText,
     required this.icon,
     this.isPassword = false,
+    this.controller,
   });
 
   @override
@@ -36,6 +38,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     final colorSuffixIcon = isDark ? AppColors.whiteColor : AppColors.greyColor;
     final colorHintText = isDark ? AppColors.whiteColor : AppColors.greyColor;
     return TextFormField(
+      controller: widget.controller,
       decoration: InputDecoration(
         suffixIcon: widget.isPassword!
             ? IconButton(

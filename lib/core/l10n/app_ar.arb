@@ -22,5 +22,9 @@
   "or": "او",
   "register": "إنشاء حساب",
   "lognByGoogle": "تسجيل بواسطة جوجل",
-  "alreadyHaveAccount": "لديك حساب بالفعل؟ "
+  "alreadyHaveAccount": "لديك حساب بالفعل؟ ",
+  "english": "الأنجليزية",
+  "arabic": "العربية",
+  "darkMode": "داكن",
+  "lightMode": "فاتح"
 }
