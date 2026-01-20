@@ -48,9 +48,27 @@ class $AssetsIconsGen {
   /// File path: assets/icons/lock_icon.svg
   SvgGenImage get lockIcon => const SvgGenImage('assets/icons/lock_icon.svg');
 
+  /// File path: assets/icons/logo_top_dark_mode.svg
+  SvgGenImage get logoTopDarkMode =>
+      const SvgGenImage('assets/icons/logo_top_dark_mode.svg');
+
+  /// File path: assets/icons/logo_top_light_mode.svg
+  SvgGenImage get logoTopLightMode =>
+      const SvgGenImage('assets/icons/logo_top_light_mode.svg');
+
+  /// File path: assets/icons/moon.svg
+  SvgGenImage get moon => const SvgGenImage('assets/icons/moon.svg');
+
+  /// File path: assets/icons/moon_dark_mode.svg
+  SvgGenImage get moonDarkMode =>
+      const SvgGenImage('assets/icons/moon_dark_mode.svg');
+
   /// File path: assets/icons/person_icon.svg
   SvgGenImage get personIcon =>
       const SvgGenImage('assets/icons/person_icon.svg');
+
+  /// File path: assets/icons/sun.svg
+  SvgGenImage get sun => const SvgGenImage('assets/icons/sun.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
@@ -58,7 +76,12 @@ class $AssetsIconsGen {
     eyeSlash,
     googleIcon,
     lockIcon,
+    logoTopDarkMode,
+    logoTopLightMode,
+    moon,
+    moonDarkMode,
     personIcon,
+    sun,
   ];
 }
 
@@ -70,6 +93,14 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/Logo.png');
+
+  /// File path: assets/images/Logo_change.png
+  AssetGenImage get logoChange =>
+      const AssetGenImage('assets/images/Logo_change.png');
+
+  /// File path: assets/images/Logo_change_edit.png
+  AssetGenImage get logoChangeEdit =>
+      const AssetGenImage('assets/images/Logo_change_edit.png');
 
   /// File path: assets/images/Logo_edit.png
   AssetGenImage get logoEdit =>
@@ -90,6 +121,10 @@ class $AssetsImagesGen {
   AssetGenImage get eventlyLogoTop =>
       const AssetGenImage('assets/images/evently_logo_top.png');
 
+  /// File path: assets/images/evently_logo_top_change.png
+  AssetGenImage get eventlyLogoTopChange =>
+      const AssetGenImage('assets/images/evently_logo_top_change.png');
+
   /// File path: assets/images/first_image_of_intro_1.png
   AssetGenImage get firstImageOfIntro1 =>
       const AssetGenImage('assets/images/first_image_of_intro_1.png');
@@ -98,9 +133,27 @@ class $AssetsImagesGen {
   AssetGenImage get firstImageOfIntro1Dark =>
       const AssetGenImage('assets/images/first_image_of_intro_1_dark.png');
 
+  /// File path: assets/images/first_image_of_intro_1_dark_change.png
+  AssetGenImage get firstImageOfIntro1DarkChange => const AssetGenImage(
+    'assets/images/first_image_of_intro_1_dark_change.png',
+  );
+
+  /// File path: assets/images/first_image_of_intro_1_light_change.png
+  AssetGenImage get firstImageOfIntro1LightChange => const AssetGenImage(
+    'assets/images/first_image_of_intro_1_light_change.png',
+  );
+
   /// File path: assets/images/forgot_password_image.png
   AssetGenImage get forgotPasswordImage =>
       const AssetGenImage('assets/images/forgot_password_image.png');
+
+  /// File path: assets/images/forgot_password_image_dark.png
+  AssetGenImage get forgotPasswordImageDark =>
+      const AssetGenImage('assets/images/forgot_password_image_dark.png');
+
+  /// File path: assets/images/forgot_password_image_light.png
+  AssetGenImage get forgotPasswordImageLight =>
+      const AssetGenImage('assets/images/forgot_password_image_light.png');
 
   /// File path: assets/images/fourth_image_of_intro_4.png
   AssetGenImage get fourthImageOfIntro4 =>
@@ -110,9 +163,21 @@ class $AssetsImagesGen {
   AssetGenImage get fourthImageOfIntro4Dark =>
       const AssetGenImage('assets/images/fourth_image_of_intro_4_dark.png');
 
+  /// File path: assets/images/logo_top_dark_mode.png
+  AssetGenImage get logoTopDarkMode =>
+      const AssetGenImage('assets/images/logo_top_dark_mode.png');
+
+  /// File path: assets/images/logo_top_light_mode.png
+  AssetGenImage get logoTopLightMode =>
+      const AssetGenImage('assets/images/logo_top_light_mode.png');
+
   /// File path: assets/images/route_logo_splash_footer.png
   AssetGenImage get routeLogoSplashFooter =>
       const AssetGenImage('assets/images/route_logo_splash_footer.png');
+
+  /// File path: assets/images/route_logo_splash_footer_change.png
+  AssetGenImage get routeLogoSplashFooterChange =>
+      const AssetGenImage('assets/images/route_logo_splash_footer_change.png');
 
   /// File path: assets/images/second_image_of_intro_2.png
   AssetGenImage get secondImageOfIntro2 =>
@@ -130,17 +195,27 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
     eg,
     logo,
+    logoChange,
+    logoChangeEdit,
     logoEdit,
     moonDarkMode,
     sunLightMood,
     usa,
     eventlyLogoTop,
+    eventlyLogoTopChange,
     firstImageOfIntro1,
     firstImageOfIntro1Dark,
+    firstImageOfIntro1DarkChange,
+    firstImageOfIntro1LightChange,
     forgotPasswordImage,
+    forgotPasswordImageDark,
+    forgotPasswordImageLight,
     fourthImageOfIntro4,
     fourthImageOfIntro4Dark,
+    logoTopDarkMode,
+    logoTopLightMode,
     routeLogoSplashFooter,
+    routeLogoSplashFooterChange,
     secondImageOfIntro2,
     thirdImageOfIntro3,
     thirdImageOfIntro3Dark,

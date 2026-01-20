@@ -13,7 +13,7 @@ class CustomLogoTopPage extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Padding(
         padding: EdgeInsets.only(top: sizeH * 0.04),
-        child: Assets.images.eventlyLogoTop.image(
+        child: Assets.images.eventlyLogoTopChange.image(
           width: sizeW * 0.42,
           height: sizeH * 0.056,
           fit: BoxFit.contain,

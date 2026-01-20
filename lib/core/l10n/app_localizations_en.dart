@@ -50,16 +50,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Make every event unforgettable by sharing the experience with others. Our platform allows you to invite friends, keep everyone informed, and celebrate moments together. Capture exciting photos and share them with your network so you can relive special moments and preserve memories.';
 
   @override
-  String get email => 'Email';
+  String get email => 'Enter your email';
 
   @override
-  String get name => 'Name';
+  String get name => 'Enter your name';
 
   @override
-  String get password => 'Password';
+  String get password => 'Enter your password';
 
   @override
-  String get rePassword => 'Confirm Password';
+  String get rePassword => 'Confirm your password';
 
   @override
   String get resetPassword => 'Reset Password';
@@ -71,19 +71,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get signByGoogle => 'SignUp with Google';
+
+  @override
   String get register => 'Register';
 
   @override
   String get dontHaveAccount => 'Don’t have an account?';
 
   @override
-  String get createAccount => 'Create Account';
+  String get createAccount => 'SignUp';
 
   @override
   String get or => 'Or';
 
   @override
-  String get lognByGoogle => 'Sign in with Google';
+  String get loginByGoogle => 'SignIn with Google';
+
+  @override
+  String get loginToYourAccount => 'Login to your account';
+
+  @override
+  String get createYourAccount => 'Create your account';
 
   @override
   String get alreadyHaveAccount => 'Already have an account?';

@@ -8,8 +8,12 @@ import 'package:provider/provider.dart';
 import 'core/l10n/app_localizations.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => AppSettingsProvider(), child: MyApp()));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppSettingsProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appSettingsProvider = Provider.of<AppSettingsProvider>(
-        context, listen: true);
+      context,
+      listen: true,
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: appSettingsProvider.currentTheme,

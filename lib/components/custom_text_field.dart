@@ -30,16 +30,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
     final sizeH = MediaQuery.of(context).size.height;
     final theme = Theme.of(context).textTheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final colorBorder = isDark ? AppColors.primaryColor : AppColors.greyColor;
+    final colorBorder = isDark
+        ? AppColors.strokeDarkModeColor
+        : AppColors.whiteColorBorder;
     final colorFocusBorder = isDark
         ? AppColors.whiteColor
         : AppColors.primaryColor;
+    final fillColor = isDark
+        ? AppColors.secondDarkModeColor
+        : AppColors.whiteColor;
     final colorPrefixIcon = isDark ? AppColors.whiteColor : AppColors.greyColor;
     final colorSuffixIcon = isDark ? AppColors.whiteColor : AppColors.greyColor;
-    final colorHintText = isDark ? AppColors.whiteColor : AppColors.greyColor;
+    final colorHintText = isDark
+        ? AppColors.lightGreyColor
+        : AppColors.darkGreyColor;
     return TextFormField(
       controller: widget.controller,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: fillColor,
         suffixIcon: widget.isPassword!
             ? IconButton(
                 onPressed: () {
@@ -70,7 +79,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         hint: Text(
           widget.hintText,
-          style: theme.titleMedium!.copyWith(color: colorHintText),
+          style: theme.titleMedium!.copyWith(
+            color: colorHintText,
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
+          ),
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(width: 2, color: AppColors.primaryColor),

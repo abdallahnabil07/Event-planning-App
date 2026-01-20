@@ -50,13 +50,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'اجعل كل حدث لا يُنسى من خلال مشاركة التجربة مع الآخرين. تتيح لك منصتنا دعوة الأصدقاء وإبقاء الجميع على اطلاع والاحتفال باللحظات معًا. التقط الصور المثيرة وشاركها مع شبكتك، حتى تتمكن من استعادة اللحظات المميزة والاحتفاظ بالذكريات.';
 
   @override
-  String get email => 'البريد الالكتروني';
+  String get email => 'ادخل بريدك الالكتروني';
 
   @override
-  String get name => 'الاسم';
+  String get name => 'ادخل اسمك';
 
   @override
-  String get password => 'كلمة المرور';
+  String get password => 'ادخل كلمة المرور';
 
   @override
   String get rePassword => 'إعادة كتابة كلمة المرور';
@@ -71,6 +71,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل دخول';
 
   @override
+  String get signByGoogle => 'إنشاء حساب بواسطة جوجل';
+
+  @override
   String get register => 'إنشاء حساب';
 
   @override
@@ -83,7 +86,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get or => 'او';
 
   @override
-  String get lognByGoogle => 'تسجيل بواسطة جوجل';
+  String get loginByGoogle => 'تسجيل بواسطة جوجل';
+
+  @override
+  String get loginToYourAccount => 'سجّل الدخول إلى حسابك';
+
+  @override
+  String get createYourAccount => 'أنشئ حسابك';
 
   @override
   String get alreadyHaveAccount => 'لديك حساب بالفعل؟ ';

@@ -24,26 +24,25 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
         children: [
           Center(
-            child: Assets.images.logo.image(
-              width: sizeW * 0.54,
-              height: sizeH * 0.44,
+            child: Assets.images.logoChange.image(
+              width: context.width * 0.80,
+              height: context.height * 0.44,
             ),
           ),
 
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: sizeH * 0.055),
-              child: Assets.images.routeLogoSplashFooter.image(
-                width: sizeW * 0.34,
-                height: sizeH * 0.064,
+              padding: EdgeInsets.only(bottom: context.height * 0.055),
+              child: Assets.images.routeLogoSplashFooterChange.image(
+                width: context.width * 0.17,
+                height: context.paddingHeight32,
               ),
             ),
           ),
@@ -51,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: sizeH * 0.035),
+              padding: EdgeInsets.only(bottom: context.height * 0.035),
               child: Text(
                 textAlign: TextAlign.center,
                 context.appLocalizations.supervisedByMohamedNabil,

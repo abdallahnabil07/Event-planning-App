@@ -173,25 +173,25 @@ abstract class AppLocalizations {
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
+  /// **'Enter your email'**
   String get email;
 
   /// No description provided for @name.
   ///
   /// In en, this message translates to:
-  /// **'Name'**
+  /// **'Enter your name'**
   String get name;
 
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'Password'**
+  /// **'Enter your password'**
   String get password;
 
   /// No description provided for @rePassword.
   ///
   /// In en, this message translates to:
-  /// **'Confirm Password'**
+  /// **'Confirm your password'**
   String get rePassword;
 
   /// No description provided for @resetPassword.
@@ -212,6 +212,12 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @signByGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'SignUp with Google'**
+  String get signByGoogle;
+
   /// No description provided for @register.
   ///
   /// In en, this message translates to:
@@ -227,7 +233,7 @@ abstract class AppLocalizations {
   /// No description provided for @createAccount.
   ///
   /// In en, this message translates to:
-  /// **'Create Account'**
+  /// **'SignUp'**
   String get createAccount;
 
   /// No description provided for @or.
@@ -236,11 +242,23 @@ abstract class AppLocalizations {
   /// **'Or'**
   String get or;
 
-  /// No description provided for @lognByGoogle.
+  /// No description provided for @loginByGoogle.
   ///
   /// In en, this message translates to:
-  /// **'Sign in with Google'**
-  String get lognByGoogle;
+  /// **'SignIn with Google'**
+  String get loginByGoogle;
+
+  /// No description provided for @loginToYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Login to your account'**
+  String get loginToYourAccount;
+
+  /// No description provided for @createYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get createYourAccount;
 
   /// No description provided for @alreadyHaveAccount.
   ///

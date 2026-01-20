@@ -2,6 +2,10 @@ import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
+  static const isDark = true;
+  static final textColorTitle = isDark
+      ? AppColors.whiteColor
+      : AppColors.blackColor;
   static ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.whiteColor,
@@ -55,7 +59,7 @@ abstract class AppTheme {
       titleTextStyle: TextStyle(
         fontFamily: "inter",
         fontWeight: FontWeight.w400,
-        color: AppColors.primaryColor,
+        color: textColorTitle,
         fontSize: 20,
       ),
     ),

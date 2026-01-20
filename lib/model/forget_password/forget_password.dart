@@ -15,14 +15,64 @@ class ForgetPassword extends StatefulWidget {
 class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme
+        .of(context)
+        .brightness == Brightness.dark;
+    final image = isDark
+        ? Assets.images.forgotPasswordImageDark
+        : Assets.images.forgotPasswordImageLight;
+    final backgroundColorContainer = isDark
+        ? AppColors.strokeDarkModeColor
+        : AppColors.whiteColor;
+    final backgroundColorContainerBorder = isDark
+        ? AppColors.mainDarkModeColor
+        : AppColors.whiteColorBorder;
+    final arrowColor = isDark
+        ? AppColors.whiteColor
+        : AppColors.primaryColor;
+
     final sizeW = context.width;
     final sizeH = context.height;
     return Scaffold(
-      appBar: AppBar(title: Text(context.appLocalizations.resetPassword,)),
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Center(
+            child: SizedBox(
+              width: context.paddingWidth24,
+              height: context.paddingHeight24,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(10),
+                onTap: () => Navigator.pop(context),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: backgroundColorContainer,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: backgroundColorContainerBorder,
+                      width: 1,
+                    ),
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.arrow_back,
+                      size: 18,
+                      color: arrowColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+
+
+        title: Text(context.appLocalizations.resetPassword),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Assets.images.forgotPasswordImage.image(),
+          image.image(),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: sizeW * 0.041,
@@ -30,7 +80,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             ),
             child: CustomElevatedButton(
               textButton: context.appLocalizations.resetPassword,
-              backgroundColor: AppColors.primaryColor,
               onPressed: () {},
             ),
           ),

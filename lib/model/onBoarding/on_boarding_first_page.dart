@@ -24,8 +24,40 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
     final sizeH = MediaQuery.of(context).size.height;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final image = isDark
-        ? Assets.images.firstImageOfIntro1Dark
-        : Assets.images.firstImageOfIntro1;
+        ? Assets.images.firstImageOfIntro1DarkChange.image(fit: BoxFit.contain)
+        : Assets.images.firstImageOfIntro1LightChange.image(
+        fit: BoxFit.contain);
+    final moonIcon = isDark
+        ? Assets.icons.moonDarkMode
+        : Assets.icons.moon;
+    final containerColorLightModeSelected = isDark
+        ? AppColors.mainDarkModeColor
+        : AppColors.strokeDarkModeColor;
+    final containerColorLightModeUnSelected = isDark
+        ? AppColors.secondDarkModeColor
+        : AppColors.whiteColor;
+    final textColorTitle = isDark
+        ? AppColors.whiteColor
+        : AppColors.blackColor;
+    final textColorDetails = isDark
+        ? AppColors.lightGreyColor
+        : AppColors.darkGreyColor;
+    final textColorLanguageAndTheme = isDark
+        ? AppColors.whiteColor
+        : AppColors.strokeDarkModeColor;
+    final isLightSelected =
+        appSettingsProvider.currentTheme == ThemeMode.light;
+
+    final lightTextColor = isLightSelected
+        ? (isDark ? AppColors.whiteColor : AppColors.strokeDarkModeColor)
+        : AppColors.whiteColor;
+
+    final darkTextColor = !isLightSelected
+        ? (isDark ? AppColors.whiteColor : AppColors.strokeDarkModeColor)
+        : AppColors.whiteColor;
+
+
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -34,14 +66,14 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
           //image
           Padding(
             padding: EdgeInsets.only(
-              top: sizeH * 0.072,
-              left: sizeW * 0.041,
-              right: sizeW * 0.041,
+              top: context.paddingHeight16,
+              left: context.paddingWidth4,
+              right: context.paddingWidth4,
             ),
             child: SizedBox(
               width: sizeW * 0.92,
-              height: sizeH * 0.41,
-              child: image.image(fit: BoxFit.contain),
+              height: sizeH * 0.48,
+              child: image,
             ),
           ),
           //title
@@ -55,7 +87,8 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               child: Text(
                 textAlign: TextAlign.start,
                 context.appLocalizations.firstOnBoardingTitle,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: context.textTheme.titleLarge!.copyWith(
+                    color: textColorTitle, fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -69,26 +102,32 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
             child: Text(
               textAlign: TextAlign.start,
               context.appLocalizations.firstOnBoardingDetails,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: context.textTheme.titleMedium!.copyWith(
+                  color: textColorDetails),
             ),
           ),
           //language
           Padding(
             padding: EdgeInsets.only(
+              top: context.paddingHeight18,
               left: sizeW * 0.041,
               right: sizeW * 0.041,
               bottom: sizeH * 0.018,
             ),
             child: CustomDropButtonThemeLanguage(
+              firstItemSelectedTextColor: lightTextColor,
+              secondItemTextColor: lightTextColor,
+              titleTextColor: textColorLanguageAndTheme,
+              currentValue: appSettingsProvider.currentLanguage,
+              colorSelected: containerColorLightModeSelected,
+              colorUnSelected: containerColorLightModeUnSelected,
               titleText: context.appLocalizations.language,
-              itemImage: Assets.images.eg,
-              firstItemText: context.appLocalizations.arabic,
-              secondItemText: context.appLocalizations.english,
-              firstValueImage: Assets.images.eg,
-              secondValueImage: Assets.images.usa,
-              firstItemTextValue: "ar",
-              secondItemTextValue: "en",
-              onChanged: (String? value) {
+              firstItemText: context.appLocalizations.english,
+              secondItemText: context.appLocalizations.arabic,
+              isIcon: false,
+              firstItemTextValue: "en",
+              secondItemTextValue: "ar",
+              onChanged: (value) {
                 appSettingsProvider.changeLanguage(value!);
               },
             ),
@@ -96,22 +135,24 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
           //theme
           Padding(
             padding: EdgeInsets.only(
-              left: sizeW * 0.041,
-              right: sizeW * 0.041,
-              bottom: sizeH * 0.031,
+              left: context.paddingWidth16,
+              right: context.paddingWidth16,
+              bottom: context.paddingHeight28,
             ),
             child: CustomDropButtonThemeLanguage(
-              colorFirstValueImage: AppColors.darkModeColor,
-              colorSecondValueImage: Colors.amber,
+              titleTextColor: textColorLanguageAndTheme,
+              currentValue: appSettingsProvider.currentTheme == ThemeMode.light
+                  ? "light"
+                  : "dark",
               titleText: context.appLocalizations.theme,
-              itemImage: Assets.images.sunLightMood,
-              colorImage: AppColors.primaryColor,
-              firstItemText: context.appLocalizations.darkMode,
-              secondItemText: context.appLocalizations.lightMode,
-              firstItemTextValue: "dark",
-              secondItemTextValue: "light",
-              firstValueImage: Assets.images.moonDarkMode,
-              secondValueImage: Assets.images.sunLightMood,
+              isIcon: true,
+              firstIcon: Assets.icons.sun,
+              secondIcon: moonIcon,
+              colorImage: AppColors.whiteColor,
+              colorSelected: containerColorLightModeSelected,
+              colorUnSelected: containerColorLightModeUnSelected,
+              firstItemTextValue: "light",
+              secondItemTextValue: "dark",
               onChanged: (String? value) {
                 if (value == "dark") {
                   appSettingsProvider.changeTheme(ThemeMode.dark);
@@ -128,11 +169,11 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
             padding: EdgeInsets.only(
               left: sizeW * 0.041,
               right: sizeW * 0.041,
-              bottom: sizeH * 0.019,
+              // bottom: sizeH * 0.08,
             ),
             child: CustomElevatedButton(
               textButton: context.appLocalizations.letsStart,
-              backgroundColor: AppColors.primaryColor,
+              backgroundColor: containerColorLightModeSelected,
               onPressed: () {
                 Navigator.pushNamed(
                   context,

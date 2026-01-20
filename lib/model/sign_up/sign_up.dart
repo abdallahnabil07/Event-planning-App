@@ -3,11 +3,14 @@ import 'package:eventy_app/components/custom_text_field.dart';
 import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
+import 'package:eventy_app/custom_widget/custom_appbar_sign_in_up.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/routes/app_routes_name.dart';
-import '../../custom_widget/custom_full_logo_top_page.dart';
+import '../../custom_widget/custom_google_elevated_button.dart';
+import '../../custom_widget/custom_or_word_sign_in_up.dart';
 import '../../custom_widget/rich_text_sign_up_in.dart';
+import '../onBoarding/widget/custom_text_top_sign_in_up.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -19,26 +22,24 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    final theme = context.textTheme;
-    final sizeW = context.width;
-    final sizeH = context.height;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final textColorAlreadyHaveAccount = isDark
-        ? AppColors.whiteColor
-        : AppColors.blackColor;
+        ? AppColors.lightGreyColor
+        : AppColors.darkGreyColor;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: Text(context.appLocalizations.register,)),
+      appBar: CustomAppBarSignInUp(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          CustomFullLogoTopPage(),
+          CustomTextTopSignInUp(
+              text: context.appLocalizations.createYourAccount),
           //name
           Padding(
             padding: EdgeInsets.only(
-              left: sizeW * 0.041,
-              right: sizeW * 0.041,
-              bottom: sizeH * 0.018,
+              left: context.width * 0.041,
+              right: context.width * 0.041,
+              bottom: context.height * 0.018,
             ),
             child: CustomTextField(
               hintText: context.appLocalizations.name,
@@ -48,9 +49,9 @@ class _SignUpState extends State<SignUp> {
           //email
           Padding(
             padding: EdgeInsets.only(
-              left: sizeW * 0.041,
-              right: sizeW * 0.041,
-              bottom: sizeH * 0.018,
+              left: context.width * 0.041,
+              right: context.width * 0.041,
+              bottom: context.height * 0.018,
             ),
             child: CustomTextField(
               hintText: context.appLocalizations.email,
@@ -60,9 +61,9 @@ class _SignUpState extends State<SignUp> {
           //password
           Padding(
             padding: EdgeInsets.only(
-              left: sizeW * 0.041,
-              right: sizeW * 0.041,
-              bottom: sizeH * 0.018,
+              left: context.width * 0.041,
+              right: context.width * 0.041,
+              bottom: context.height * 0.018,
             ),
             child: CustomTextField(
               hintText: context.appLocalizations.password,
@@ -72,7 +73,8 @@ class _SignUpState extends State<SignUp> {
           ),
           //re password
           Padding(
-            padding: EdgeInsets.only(left: sizeW * 0.041, right: sizeW * 0.041),
+            padding: EdgeInsets.only(
+                left: context.width * 0.041, right: context.width * 0.041),
             child: CustomTextField(
               hintText: context.appLocalizations.rePassword,
               icon: Assets.icons.lockIcon,
@@ -82,12 +84,11 @@ class _SignUpState extends State<SignUp> {
           //elevated button
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: sizeW * 0.041,
-              vertical: sizeH * 0.022,
+              horizontal: context.width * 0.041,
+              vertical: context.height * 0.022,
             ),
             child: CustomElevatedButton(
               textButton: context.appLocalizations.createAccount,
-              backgroundColor: AppColors.primaryColor,
               onPressed: () {},
             ),
           ),
@@ -101,6 +102,10 @@ class _SignUpState extends State<SignUp> {
             firstTextColor: textColorAlreadyHaveAccount,
             secondTextColor: AppColors.primaryColor,
           ),
+          CustomOrWordSignInUp(),
+          CustomGoogleElevatedButton(
+            textButton: context.appLocalizations.signByGoogle,),
+
         ],
       ),
     );
