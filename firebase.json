@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "event-app-abdallah",
+          "appId": "1:960301872496:android:9f2b884458b2196d738bb5",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "event-app-abdallah",
+          "configurations": {
+            "android": "1:960301872496:android:9f2b884458b2196d738bb5",
+            "ios": "1:960301872496:ios:6ba0fef71996b92c738bb5"
+          }
+        }
+      }
+    }
+  }
+}

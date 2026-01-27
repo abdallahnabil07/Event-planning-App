@@ -17,6 +17,8 @@ dependencies:
   flutter_svg: ^2.0.9
   vector_graphics: ^1.1.11
   provider: ^6.1.5+1
+  firebase_core: ^4.4.0
+  cloud_firestore: ^6.1.2
 
 dev_dependencies:
   flutter_test:

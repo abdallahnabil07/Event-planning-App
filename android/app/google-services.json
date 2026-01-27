@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960301872496",
+    "project_id": "event-app-abdallah",
+    "storage_bucket": "event-app-abdallah.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960301872496:android:9f2b884458b2196d738bb5",
+        "android_client_info": {
+          "package_name": "com.example.eventy_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoeAmBYduePz_jr_dBOqMYNNgW5cnqPiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
