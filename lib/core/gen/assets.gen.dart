@@ -35,15 +35,67 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/arrow_left.svg
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
+
+  /// File path: assets/icons/arrow_right.svg
+  SvgGenImage get arrowRight =>
+      const SvgGenImage('assets/icons/arrow_right.svg');
+
+  /// File path: assets/icons/calendar_add.svg
+  SvgGenImage get calendarAdd =>
+      const SvgGenImage('assets/icons/calendar_add.svg');
+
+  /// File path: assets/icons/clock.svg
+  SvgGenImage get clock => const SvgGenImage('assets/icons/clock.svg');
+
   /// File path: assets/icons/email_icon.svg
   SvgGenImage get emailIcon => const SvgGenImage('assets/icons/email_icon.svg');
 
   /// File path: assets/icons/eye_slash.svg
   SvgGenImage get eyeSlash => const SvgGenImage('assets/icons/eye_slash.svg');
 
+  /// File path: assets/icons/favorite_icon.svg
+  SvgGenImage get favoriteIcon =>
+      const SvgGenImage('assets/icons/favorite_icon.svg');
+
+  /// File path: assets/icons/favorite_icon_dark.svg
+  SvgGenImage get favoriteIconDark =>
+      const SvgGenImage('assets/icons/favorite_icon_dark.svg');
+
+  /// File path: assets/icons/favorite_icon_selected.svg
+  SvgGenImage get favoriteIconSelected =>
+      const SvgGenImage('assets/icons/favorite_icon_selected.svg');
+
+  /// File path: assets/icons/favorite_icon_selected_dark.svg
+  SvgGenImage get favoriteIconSelectedDark =>
+      const SvgGenImage('assets/icons/favorite_icon_selected_dark.svg');
+
   /// File path: assets/icons/google_icon.svg
   SvgGenImage get googleIcon =>
       const SvgGenImage('assets/icons/google_icon.svg');
+
+  /// File path: assets/icons/heart.svg
+  SvgGenImage get heart => const SvgGenImage('assets/icons/heart.svg');
+
+  /// File path: assets/icons/heart_selected.svg
+  SvgGenImage get heartSelected =>
+      const SvgGenImage('assets/icons/heart_selected.svg');
+
+  /// File path: assets/icons/home_icon.svg
+  SvgGenImage get homeIcon => const SvgGenImage('assets/icons/home_icon.svg');
+
+  /// File path: assets/icons/home_icon_dark.svg
+  SvgGenImage get homeIconDark =>
+      const SvgGenImage('assets/icons/home_icon_dark.svg');
+
+  /// File path: assets/icons/home_icon_selected.svg
+  SvgGenImage get homeIconSelected =>
+      const SvgGenImage('assets/icons/home_icon_selected.svg');
+
+  /// File path: assets/icons/home_icon_selected_dark.svg
+  SvgGenImage get homeIconSelectedDark =>
+      const SvgGenImage('assets/icons/home_icon_selected_dark.svg');
 
   /// File path: assets/icons/lock_icon.svg
   SvgGenImage get lockIcon => const SvgGenImage('assets/icons/lock_icon.svg');
@@ -56,6 +108,9 @@ class $AssetsIconsGen {
   SvgGenImage get logoTopLightMode =>
       const SvgGenImage('assets/icons/logo_top_light_mode.svg');
 
+  /// File path: assets/icons/logout.svg
+  SvgGenImage get logout => const SvgGenImage('assets/icons/logout.svg');
+
   /// File path: assets/icons/moon.svg
   SvgGenImage get moon => const SvgGenImage('assets/icons/moon.svg');
 
@@ -67,21 +122,62 @@ class $AssetsIconsGen {
   SvgGenImage get personIcon =>
       const SvgGenImage('assets/icons/person_icon.svg');
 
+  /// File path: assets/icons/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
+
   /// File path: assets/icons/sun.svg
   SvgGenImage get sun => const SvgGenImage('assets/icons/sun.svg');
 
+  /// File path: assets/icons/sun_re.svg
+  SvgGenImage get sunRe => const SvgGenImage('assets/icons/sun_re.svg');
+
+  /// File path: assets/icons/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/icons/user.svg');
+
+  /// File path: assets/icons/user_dark.svg
+  SvgGenImage get userDark => const SvgGenImage('assets/icons/user_dark.svg');
+
+  /// File path: assets/icons/user_selected.svg
+  SvgGenImage get userSelected =>
+      const SvgGenImage('assets/icons/user_selected.svg');
+
+  /// File path: assets/icons/user_selected_dark.svg
+  SvgGenImage get userSelectedDark =>
+      const SvgGenImage('assets/icons/user_selected_dark.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+    arrowLeft,
+    arrowRight,
+    calendarAdd,
+    clock,
     emailIcon,
     eyeSlash,
+    favoriteIcon,
+    favoriteIconDark,
+    favoriteIconSelected,
+    favoriteIconSelectedDark,
     googleIcon,
+    heart,
+    heartSelected,
+    homeIcon,
+    homeIconDark,
+    homeIconSelected,
+    homeIconSelectedDark,
     lockIcon,
     logoTopDarkMode,
     logoTopLightMode,
+    logout,
     moon,
     moonDarkMode,
     personIcon,
+    search,
     sun,
+    sunRe,
+    user,
+    userDark,
+    userSelected,
+    userSelectedDark,
   ];
 }
 
@@ -117,6 +213,38 @@ class $AssetsImagesGen {
   /// File path: assets/images/USA.png
   AssetGenImage get usa => const AssetGenImage('assets/images/USA.png');
 
+  /// File path: assets/images/birthday_image_large_dark.png
+  AssetGenImage get birthdayImageLargeDark =>
+      const AssetGenImage('assets/images/birthday_image_large_dark.png');
+
+  /// File path: assets/images/birthday_image_large_light.png
+  AssetGenImage get birthdayImageLargeLight =>
+      const AssetGenImage('assets/images/birthday_image_large_light.png');
+
+  /// File path: assets/images/birthday_image_small_dark.png
+  AssetGenImage get birthdayImageSmallDark =>
+      const AssetGenImage('assets/images/birthday_image_small_dark.png');
+
+  /// File path: assets/images/birthday_image_small_light.png
+  AssetGenImage get birthdayImageSmallLight =>
+      const AssetGenImage('assets/images/birthday_image_small_light.png');
+
+  /// File path: assets/images/book_club_image_large_dark.png
+  AssetGenImage get bookClubImageLargeDark =>
+      const AssetGenImage('assets/images/book_club_image_large_dark.png');
+
+  /// File path: assets/images/book_club_image_large_light.png
+  AssetGenImage get bookClubImageLargeLight =>
+      const AssetGenImage('assets/images/book_club_image_large_light.png');
+
+  /// File path: assets/images/book_club_image_small_dark.png
+  AssetGenImage get bookClubImageSmallDark =>
+      const AssetGenImage('assets/images/book_club_image_small_dark.png');
+
+  /// File path: assets/images/book_club_image_small_light.png
+  AssetGenImage get bookClubImageSmallLight =>
+      const AssetGenImage('assets/images/book_club_image_small_light.png');
+
   /// File path: assets/images/evently_logo_top.png
   AssetGenImage get eventlyLogoTop =>
       const AssetGenImage('assets/images/evently_logo_top.png');
@@ -124,6 +252,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/evently_logo_top_change.png
   AssetGenImage get eventlyLogoTopChange =>
       const AssetGenImage('assets/images/evently_logo_top_change.png');
+
+  /// File path: assets/images/exhibition _image_large_dark.png
+  AssetGenImage get exhibitionImageLargeDark =>
+      const AssetGenImage('assets/images/exhibition _image_large_dark.png');
+
+  /// File path: assets/images/exhibition _image_large_light.png
+  AssetGenImage get exhibitionImageLargeLight =>
+      const AssetGenImage('assets/images/exhibition _image_large_light.png');
+
+  /// File path: assets/images/exhibition _image_small_dark.png
+  AssetGenImage get exhibitionImageSmallDark =>
+      const AssetGenImage('assets/images/exhibition _image_small_dark.png');
+
+  /// File path: assets/images/exhibition _image_small_light.png
+  AssetGenImage get exhibitionImageSmallLight =>
+      const AssetGenImage('assets/images/exhibition _image_small_light.png');
 
   /// File path: assets/images/first_image_of_intro_1.png
   AssetGenImage get firstImageOfIntro1 =>
@@ -171,6 +315,25 @@ class $AssetsImagesGen {
   AssetGenImage get logoTopLightMode =>
       const AssetGenImage('assets/images/logo_top_light_mode.png');
 
+  /// File path: assets/images/me.jpeg
+  AssetGenImage get me => const AssetGenImage('assets/images/me.jpeg');
+
+  /// File path: assets/images/meeting_image_large_dark.png
+  AssetGenImage get meetingImageLargeDark =>
+      const AssetGenImage('assets/images/meeting_image_large_dark.png');
+
+  /// File path: assets/images/meeting_image_large_light.png
+  AssetGenImage get meetingImageLargeLight =>
+      const AssetGenImage('assets/images/meeting_image_large_light.png');
+
+  /// File path: assets/images/meeting_image_small_dark.png
+  AssetGenImage get meetingImageSmallDark =>
+      const AssetGenImage('assets/images/meeting_image_small_dark.png');
+
+  /// File path: assets/images/meeting_image_small_light.png
+  AssetGenImage get meetingImageSmallLight =>
+      const AssetGenImage('assets/images/meeting_image_small_light.png');
+
   /// File path: assets/images/route_logo_splash_footer.png
   AssetGenImage get routeLogoSplashFooter =>
       const AssetGenImage('assets/images/route_logo_splash_footer.png');
@@ -182,6 +345,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/second_image_of_intro_2.png
   AssetGenImage get secondImageOfIntro2 =>
       const AssetGenImage('assets/images/second_image_of_intro_2.png');
+
+  /// File path: assets/images/sport_image_large_dark.png
+  AssetGenImage get sportImageLargeDark =>
+      const AssetGenImage('assets/images/sport_image_large_dark.png');
+
+  /// File path: assets/images/sport_image_large_light.png
+  AssetGenImage get sportImageLargeLight =>
+      const AssetGenImage('assets/images/sport_image_large_light.png');
+
+  /// File path: assets/images/sport_image_small_dark.png
+  AssetGenImage get sportImageSmallDark =>
+      const AssetGenImage('assets/images/sport_image_small_dark.png');
+
+  /// File path: assets/images/sport_image_small_light.png
+  AssetGenImage get sportImageSmallLight =>
+      const AssetGenImage('assets/images/sport_image_small_light.png');
 
   /// File path: assets/images/third_image_of_intro_3.png
   AssetGenImage get thirdImageOfIntro3 =>
@@ -201,8 +380,20 @@ class $AssetsImagesGen {
     moonDarkMode,
     sunLightMood,
     usa,
+    birthdayImageLargeDark,
+    birthdayImageLargeLight,
+    birthdayImageSmallDark,
+    birthdayImageSmallLight,
+    bookClubImageLargeDark,
+    bookClubImageLargeLight,
+    bookClubImageSmallDark,
+    bookClubImageSmallLight,
     eventlyLogoTop,
     eventlyLogoTopChange,
+    exhibitionImageLargeDark,
+    exhibitionImageLargeLight,
+    exhibitionImageSmallDark,
+    exhibitionImageSmallLight,
     firstImageOfIntro1,
     firstImageOfIntro1Dark,
     firstImageOfIntro1DarkChange,
@@ -214,9 +405,18 @@ class $AssetsImagesGen {
     fourthImageOfIntro4Dark,
     logoTopDarkMode,
     logoTopLightMode,
+    me,
+    meetingImageLargeDark,
+    meetingImageLargeLight,
+    meetingImageSmallDark,
+    meetingImageSmallLight,
     routeLogoSplashFooter,
     routeLogoSplashFooterChange,
     secondImageOfIntro2,
+    sportImageLargeDark,
+    sportImageLargeLight,
+    sportImageSmallDark,
+    sportImageSmallLight,
     thirdImageOfIntro3,
     thirdImageOfIntro3Dark,
   ];

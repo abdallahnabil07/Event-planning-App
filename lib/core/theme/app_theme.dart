@@ -8,7 +8,7 @@ abstract class AppTheme {
       : AppColors.blackColor;
   static ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.whiteColor,
+    scaffoldBackgroundColor: AppColors.backGroudLightMode,
     useMaterial3: true,
     primaryColor: AppColors.primaryColor,
     fontFamily: "inter",
@@ -25,7 +25,7 @@ abstract class AppTheme {
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w400,
         color: AppColors.primaryColor,

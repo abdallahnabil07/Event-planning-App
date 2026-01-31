@@ -3,109 +3,132 @@ import 'package:flutter/material.dart';
 import '../core/gen/assets.gen.dart';
 import '../core/theme/app_colors.dart';
 
+enum IconPosition {
+  start,
+  end,
+}
 class CustomTextField extends StatefulWidget {
   final String hintText;
-  final SvgGenImage icon;
-  final bool? isPassword;
+  final SvgGenImage? icon;
+  final IconPosition iconPosition;
+  final bool isPassword;
   final TextEditingController? controller;
+  final int? maxLine;
+  final Color? fillColor;
+  final Color? borderColor;
+  final Color? focusedBorderColor;
 
   const CustomTextField({
     super.key,
     required this.hintText,
-    required this.icon,
+    this.icon,
+    this.iconPosition = IconPosition.start,
     this.isPassword = false,
     this.controller,
+    this.fillColor,
+    this.borderColor,
+    this.focusedBorderColor, this.maxLine=1,
   });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
+
 class _CustomTextFieldState extends State<CustomTextField> {
   bool obscureTextPassword = true;
 
   @override
   Widget build(BuildContext context) {
-    final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
-    final theme = Theme.of(context).textTheme;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final colorBorder = isDark
-        ? AppColors.strokeDarkModeColor
-        : AppColors.whiteColorBorder;
-    final colorFocusBorder = isDark
-        ? AppColors.whiteColor
-        : AppColors.primaryColor;
-    final fillColor = isDark
-        ? AppColors.secondDarkModeColor
-        : AppColors.whiteColor;
-    final colorPrefixIcon = isDark ? AppColors.whiteColor : AppColors.greyColor;
-    final colorSuffixIcon = isDark ? AppColors.whiteColor : AppColors.greyColor;
-    final colorHintText = isDark
-        ? AppColors.lightGreyColor
-        : AppColors.darkGreyColor;
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    final fillColor = widget.fillColor ??
+        (isDark ? AppColors.secondDarkModeColor : AppColors.whiteColor);
+
+    final borderColor = widget.borderColor ??
+        (isDark
+            ? AppColors.strokeDarkModeColor
+            : AppColors.whiteColorBorder);
+
+    final focusedBorderColor = widget.focusedBorderColor ??
+        (isDark ? AppColors.whiteColor : AppColors.primaryColor);
+
+    final iconColor =
+    isDark ? AppColors.whiteColor : AppColors.greyColor;
+
+    Widget? buildIcon() {
+      if (widget.icon == null) return null;
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: widget.icon!.svg(
+          colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+        ),
+      );
+    }
+
     return TextFormField(
+      maxLines: widget.maxLine,
       controller: widget.controller,
+      obscureText: widget.isPassword ? obscureTextPassword : false,
+      keyboardType: widget.isPassword
+          ? TextInputType.visiblePassword
+          : TextInputType.text,
       decoration: InputDecoration(
         filled: true,
         fillColor: fillColor,
-        suffixIcon: widget.isPassword!
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    obscureTextPassword = !obscureTextPassword;
-                  });
-                },
-                icon: Icon(
-                  obscureTextPassword ? Icons.visibility : Icons.visibility_off,
-                  color: colorSuffixIcon,
-                ),
-              )
+
+        prefixIcon:
+        widget.icon != null && widget.iconPosition == IconPosition.start
+            ? buildIcon()
             : null,
-        prefixIcon: Padding(
-          padding: EdgeInsets.only(
-            left: sizeW * 0.041,
-            right: sizeW * 0.03,
-            top: sizeH * 0.02,
-            bottom: sizeH * 0.02,
+
+        suffixIcon: widget.isPassword
+            ? IconButton(
+          onPressed: () {
+            setState(() {
+              obscureTextPassword = !obscureTextPassword;
+            });
+          },
+          icon: Icon(
+            obscureTextPassword
+                ? Icons.visibility
+                : Icons.visibility_off,
+            color: iconColor,
           ),
-          child: widget.icon.svg(
-            colorFilter: ColorFilter.mode(colorPrefixIcon, BlendMode.srcIn),
-          ),
+        )
+            : widget.icon != null &&
+            widget.iconPosition == IconPosition.end
+            ? buildIcon()
+            : null,
+
+        hintText: widget.hintText,
+        hintStyle: theme.textTheme.titleMedium!.copyWith(
+          color:
+          isDark ? AppColors.lightGreyColor : AppColors.darkGreyColor,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
         ),
-        prefixIconConstraints: BoxConstraints(
-          minWidth: sizeW * 0.071,
-          minHeight: sizeH * 0.031,
-        ),
-        hint: Text(
-          widget.hintText,
-          style: theme.titleMedium!.copyWith(
-            color: colorHintText,
-            fontWeight: FontWeight.w400,
-            fontSize: 14,
-          ),
-        ),
+
         border: OutlineInputBorder(
-          borderSide: BorderSide(width: 2, color: AppColors.primaryColor),
           borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: borderColor, width: 2),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 2, color: colorBorder),
           borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: borderColor, width: 2),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 2, color: colorFocusBorder),
           borderRadius: BorderRadius.circular(16),
+          borderSide:
+          BorderSide(color: focusedBorderColor, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 2, color: AppColors.redColor),
           borderRadius: BorderRadius.circular(16),
+          borderSide:
+          BorderSide(color: AppColors.redColor, width: 2),
         ),
       ),
-      obscureText: widget.isPassword! ? obscureTextPassword : false,
-      keyboardType: widget.isPassword!
-          ? TextInputType.visiblePassword
-          : TextInputType.emailAddress,
     );
   }
 }

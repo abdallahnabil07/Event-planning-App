@@ -8,4 +8,6 @@ abstract class AppRoutesName {
   static const signIn = "/sign_in";
   static const signUp = "/sign_up";
   static const forgetPassword = "/forget_password";
+  static const homeScreen = "/home_screen";
+  static const addEvent = "/add_avent";
 }

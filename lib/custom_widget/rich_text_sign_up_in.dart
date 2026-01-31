@@ -21,8 +21,6 @@ class RichTextSignUpIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.textTheme;
-    final sizeW = context.width;
-    final sizeH = context.height;
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(

@@ -1,5 +1,8 @@
 import 'package:eventy_app/core/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../modules/app_provider/app_settings_provider.dart';
 
 extension ContextExtensions on BuildContext {
   double get width => MediaQuery.of(this).size.width;
@@ -9,6 +12,11 @@ extension ContextExtensions on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 
   AppLocalizations get appLocalizations => AppLocalizations.of(this)!;
+
+  AppSettingsProvider get provider=>Provider.of<AppSettingsProvider>(this);
+
+  bool get isDark =>Theme.of(this).brightness==Brightness.dark;
+  bool get isLight =>Theme.of(this).brightness==Brightness.light;
 
   double get paddingHeight4 => width * 0.0045;
 

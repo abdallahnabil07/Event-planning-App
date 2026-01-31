@@ -34,8 +34,8 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
     final theme = Theme.of(context).textTheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final colorElevatedButton = isDark
-        ? AppColors.mainDarkModeColor
-        : AppColors.primaryColor;
+        ? AppColors.primaryDark
+        : AppColors.primaryLight;
     return SizedBox(
       width: context.width * 0.92,
       height: context.height * 0.063,

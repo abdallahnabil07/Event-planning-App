@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -108,4 +107,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lightMode => 'Light mode';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get welcome_back => 'Welcome Back ✨';
+
+  @override
+  String get abdullahNabil => 'Abdullah Nabil';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get addEvent => 'Add Event';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get eventTitle => 'Event Title';
+
+  @override
+  String get eventDescription => 'Event Description';
+
+  @override
+  String get eventDate => 'Event Date';
+
+  @override
+  String get chooseDate => 'Choose Date';
+
+  @override
+  String get eventTime => 'Event Time';
+
+  @override
+  String get chooseTime => 'Choose Time';
+
+  @override
+  String get birthday => 'Birthday';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get meeting => 'Meeting';
+
+  @override
+  String get book_club => 'Book Club';
+
+  @override
+  String get exhibition => 'Exhibition';
+
+  @override
+  String get all => 'All';
 }

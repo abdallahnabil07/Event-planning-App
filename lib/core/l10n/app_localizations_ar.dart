@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -104,8 +103,71 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arabic => 'العربية';
 
   @override
-  String get darkMode => 'داكن';
+  String get darkMode => 'الوضع الليلي';
 
   @override
   String get lightMode => 'فاتح';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get favorite => 'المفضلة';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get welcome_back => 'مرحبًا بعودتك ✨';
+
+  @override
+  String get abdullahNabil => 'عبد الله نبيل';
+
+  @override
+  String get logout => 'تسجيل خروج';
+
+  @override
+  String get addEvent => 'إضافة حدث';
+
+  @override
+  String get title => 'العنوان';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get eventTitle => 'عنوان الحدث';
+
+  @override
+  String get eventDescription => 'وصف الحدث';
+
+  @override
+  String get eventDate => 'تاريخ الحدث';
+
+  @override
+  String get chooseDate => 'اختر التاريخ';
+
+  @override
+  String get eventTime => 'وقت الحدث';
+
+  @override
+  String get chooseTime => 'اختر الوقت';
+
+  @override
+  String get birthday => 'عيد ميلاد';
+
+  @override
+  String get sport => 'رياضة';
+
+  @override
+  String get meeting => 'اجتماع';
+
+  @override
+  String get book_club => 'نادي الكتاب';
+
+  @override
+  String get exhibition => 'معرض';
+
+  @override
+  String get all => 'الكل';
 }

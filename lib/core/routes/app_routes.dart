@@ -1,15 +1,19 @@
+import 'package:eventy_app/add_event.dart';
 import 'package:eventy_app/core/routes/app_routes_name.dart';
-import 'package:eventy_app/model/forget_password/forget_password.dart';
-import 'package:eventy_app/model/onBoarding/on_boarding_fourth.dart';
-import 'package:eventy_app/model/onBoarding/on_boarding_second_page.dart';
-import 'package:eventy_app/model/signIn/sign_in_page.dart';
-import 'package:eventy_app/model/splash_screen/splash_screen.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../model/onBoarding/on_boarding_first_page.dart';
-import '../../model/onBoarding/on_boarding_third.dart';
-import '../../model/onBoarding/widget/smooth_page_indicator.dart';
-import '../../model/sign_up/sign_up.dart';
+import '../../modules/forget_password/forget_password.dart';
+import '../../modules/layout/layout.dart';
+import '../../modules/onBoarding/on_boarding_first_page.dart';
+import '../../modules/onBoarding/on_boarding_fourth.dart';
+import '../../modules/onBoarding/on_boarding_second_page.dart';
+import '../../modules/onBoarding/on_boarding_third.dart';
+import '../../modules/onBoarding/widget/smooth_page_indicator.dart';
+import '../../modules/signIn/sign_in_page.dart';
+import '../../modules/sign_up/sign_up.dart';
+import '../../modules/splash_screen/splash_screen.dart';
+
 
 abstract class AppRoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -57,6 +61,16 @@ abstract class AppRoutes {
       case AppRoutesName.signUp:
         return MaterialPageRoute(
           builder: (_) => const SignUp(),
+          settings: settings,
+        );
+        case AppRoutesName.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const Layout(),
+          settings: settings,
+        );
+        case AppRoutesName.addEvent:
+        return MaterialPageRoute(
+          builder: (_) => const AddEvent(),
           settings: settings,
         );
       default:
