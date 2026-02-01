@@ -1,30 +1,27 @@
+import 'package:eventy_app/core/utils/firestore_utils.dart';
+import 'package:eventy_app/model/event_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
+import 'package:intl/intl.dart';
 
 import '../core/extensions/context_extensions.dart';
 import '../core/gen/assets.gen.dart';
 import '../core/theme/app_colors.dart';
 
-class CustomCardDetails extends StatefulWidget {
-  const CustomCardDetails({super.key});
+class CustomCardDetails extends StatelessWidget {
+  final EventDataModel dataModel;
 
-  @override
-  State<CustomCardDetails> createState() => _CustomCardDetailsState();
-}
+  const CustomCardDetails({super.key, required this.dataModel});
 
-class _CustomCardDetailsState extends State<CustomCardDetails> {
-  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.paddingWidth16,
-        vertical: context.paddingHeight16,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Container(
-
           width: double.infinity,
           height: context.height * 0.21,
           decoration: BoxDecoration(
@@ -36,25 +33,22 @@ class _CustomCardDetailsState extends State<CustomCardDetails> {
                   ? AppColors.strokeDarkModeColor
                   : AppColors.whiteColorBorder,
             ),
-
           ),
           child: Stack(
             children: [
-              context.isDark
-                  ? Assets.images.sportImageLargeDark.image(
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    )
-                  : Assets.images.sportImageLargeLight.image(
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
+              Image.asset(
+                width: double.infinity,
+                fit: BoxFit.cover,
+                context.isDark
+                    ? dataModel.categoryDarkImage
+                    : dataModel.categoryLightImage,
+              ),
               //topBox
               Padding(
                 padding: EdgeInsets.all(8),
                 child: Container(
-                  width: 66,
-                  height: 40,
+                  width: context.width*0.16,
+                  height: context.height*0.045,
                   decoration: BoxDecoration(
                     color: context.isDark
                         ? AppColors.darkModeColor
@@ -68,7 +62,7 @@ class _CustomCardDetailsState extends State<CustomCardDetails> {
                   ),
                   child: Center(
                     child: Text(
-                      "21 Jan",
+                      DateFormat('dd MMM').format(dataModel.eventDate),
                       textAlign: TextAlign.center,
                       style: context.textTheme.bodySmall!.copyWith(
                         color: context.isDark
@@ -105,7 +99,7 @@ class _CustomCardDetailsState extends State<CustomCardDetails> {
                       child: Row(
                         children: [
                           Text(
-                            "LiverPool against Man city ",
+                            dataModel.eventTitle,
                             maxLines: 2,
                             textAlign: TextAlign.start,
                             style: context.textTheme.bodySmall!.copyWith(
@@ -119,11 +113,10 @@ class _CustomCardDetailsState extends State<CustomCardDetails> {
                           Spacer(),
                           Bounceable(
                             onTap: () {
-                              setState(() {
-                                isSelected = !isSelected;
-                              });
+                              dataModel.isFavorite = !dataModel.isFavorite;
+                              FirestoreUtils.updateEvent(dataModel);
                             },
-                            child: isSelected
+                            child: dataModel.isFavorite
                                 ? Assets.icons.heartSelected.svg()
                                 : Assets.icons.heart.svg(),
                           ),

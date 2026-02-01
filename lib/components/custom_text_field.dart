@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import '../core/gen/assets.gen.dart';
 import '../core/theme/app_colors.dart';
 
-enum IconPosition {
-  start,
-  end,
-}
+enum IconPosition { start, end }
+
 class CustomTextField extends StatefulWidget {
   final String hintText;
   final SvgGenImage? icon;
@@ -17,6 +15,7 @@ class CustomTextField extends StatefulWidget {
   final Color? fillColor;
   final Color? borderColor;
   final Color? focusedBorderColor;
+  final FormFieldValidator<String>? validator;
 
   const CustomTextField({
     super.key,
@@ -27,13 +26,14 @@ class CustomTextField extends StatefulWidget {
     this.controller,
     this.fillColor,
     this.borderColor,
-    this.focusedBorderColor, this.maxLine=1,
+    this.focusedBorderColor,
+    this.maxLine = 1,
+    this.validator,
   });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
-
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool obscureTextPassword = true;
@@ -43,19 +43,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final fillColor = widget.fillColor ??
+    final fillColor =
+        widget.fillColor ??
         (isDark ? AppColors.secondDarkModeColor : AppColors.whiteColor);
 
-    final borderColor = widget.borderColor ??
-        (isDark
-            ? AppColors.strokeDarkModeColor
-            : AppColors.whiteColorBorder);
+    final borderColor =
+        widget.borderColor ??
+        (isDark ? AppColors.strokeDarkModeColor : AppColors.whiteColorBorder);
 
-    final focusedBorderColor = widget.focusedBorderColor ??
+    final focusedBorderColor =
+        widget.focusedBorderColor ??
         (isDark ? AppColors.whiteColor : AppColors.primaryColor);
 
-    final iconColor =
-    isDark ? AppColors.whiteColor : AppColors.greyColor;
+    final iconColor = isDark ? AppColors.whiteColor : AppColors.greyColor;
 
     Widget? buildIcon() {
       if (widget.icon == null) return null;
@@ -68,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     }
 
     return TextFormField(
+      validator: widget.validator,
       maxLines: widget.maxLine,
       controller: widget.controller,
       obscureText: widget.isPassword ? obscureTextPassword : false,
@@ -79,33 +80,29 @@ class _CustomTextFieldState extends State<CustomTextField> {
         fillColor: fillColor,
 
         prefixIcon:
-        widget.icon != null && widget.iconPosition == IconPosition.start
+            widget.icon != null && widget.iconPosition == IconPosition.start
             ? buildIcon()
             : null,
 
         suffixIcon: widget.isPassword
             ? IconButton(
-          onPressed: () {
-            setState(() {
-              obscureTextPassword = !obscureTextPassword;
-            });
-          },
-          icon: Icon(
-            obscureTextPassword
-                ? Icons.visibility
-                : Icons.visibility_off,
-            color: iconColor,
-          ),
-        )
-            : widget.icon != null &&
-            widget.iconPosition == IconPosition.end
+                onPressed: () {
+                  setState(() {
+                    obscureTextPassword = !obscureTextPassword;
+                  });
+                },
+                icon: Icon(
+                  obscureTextPassword ? Icons.visibility : Icons.visibility_off,
+                  color: iconColor,
+                ),
+              )
+            : widget.icon != null && widget.iconPosition == IconPosition.end
             ? buildIcon()
             : null,
 
         hintText: widget.hintText,
         hintStyle: theme.textTheme.titleMedium!.copyWith(
-          color:
-          isDark ? AppColors.lightGreyColor : AppColors.darkGreyColor,
+          color: isDark ? AppColors.lightGreyColor : AppColors.darkGreyColor,
           fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
@@ -120,13 +117,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide:
-          BorderSide(color: focusedBorderColor, width: 2),
+          borderSide: BorderSide(color: focusedBorderColor, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide:
-          BorderSide(color: AppColors.redColor, width: 2),
+          borderSide: BorderSide(color: AppColors.redColor, width: 2),
         ),
       ),
     );

@@ -50,5 +50,6 @@
   "meeting": "اجتماع",
   "book_club": "نادي الكتاب",
   "exhibition": "معرض",
-  "all": "الكل"
+  "all": "الكل",
+  "no_data_found": "لا يوجد حدث"
 }

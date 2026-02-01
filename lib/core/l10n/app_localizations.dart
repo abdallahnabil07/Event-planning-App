@@ -415,6 +415,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All'**
   String get all;
+
+  /// No description provided for @no_data_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No event found'**
+  String get no_data_found;
 }
 
 class _AppLocalizationsDelegate

@@ -51,5 +51,6 @@
   "meeting": "Meeting",
   "book_club": "Book Club",
   "exhibition": "Exhibition",
-  "all": "All"
+  "all": "All",
+  "no_data_found": "No event found"
 }

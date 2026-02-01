@@ -170,4 +170,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get all => 'الكل';
+
+  @override
+  String get no_data_found => 'لا يوجد حدث';
 }

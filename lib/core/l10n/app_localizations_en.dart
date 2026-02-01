@@ -170,4 +170,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get all => 'All';
+
+  @override
+  String get no_data_found => 'No event found';
 }
