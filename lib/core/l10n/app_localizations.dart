@@ -421,6 +421,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No event found'**
   String get no_data_found;
+
+  /// No description provided for @event_created_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Event created successfully'**
+  String get event_created_successfully;
+
+  /// No description provided for @search_for_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for event'**
+  String get search_for_event;
+
+  /// No description provided for @unable_to_add_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to add event. Please try again'**
+  String get unable_to_add_event;
+
+  /// No description provided for @select_event_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a date for the event'**
+  String get select_event_date;
+
+  /// No description provided for @select_event_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a time for the event'**
+  String get select_event_time;
+
+  /// No description provided for @required.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is Required'**
+  String get required;
+
+  /// No description provided for @name_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get name_required;
+
+  /// No description provided for @name_too_short.
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be at least 2 characters'**
+  String get name_too_short;
+
+  /// No description provided for @email_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email'**
+  String get email_required;
+
+  /// No description provided for @invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalid_email;
+
+  /// No description provided for @password_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get password_required;
+
+  /// No description provided for @invalid_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get invalid_password;
+
+  /// No description provided for @repassword_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your confirm password'**
+  String get repassword_required;
+
+  /// No description provided for @passwords_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords don\'t match'**
+  String get passwords_not_match;
+
+  /// No description provided for @no_user_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No user found for that email'**
+  String get no_user_found;
+
+  /// No description provided for @wrong_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password provided for that user'**
+  String get wrong_password;
+
+  /// No description provided for @weak_password.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak'**
+  String get weak_password;
+
+  /// No description provided for @email_already_in_use.
+  ///
+  /// In en, this message translates to:
+  /// **'The account already exists for that email'**
+  String get email_already_in_use;
+
+  /// No description provided for @something_went_wrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong try again later'**
+  String get something_went_wrong;
 }
 
 class _AppLocalizationsDelegate

@@ -30,7 +30,7 @@ class _FavoriteState extends State<Favorite> {
             child: Padding(
               padding: EdgeInsets.only(left: 16, right: 16),
               child: CustomTextField(
-                hintText: "Search for event",
+                hintText: context.appLocalizations.search_for_event,
                 fillColor: context.isDark
                     ? AppColors.secondDarkModeColor
                     : AppColors.whiteColor,

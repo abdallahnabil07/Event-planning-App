@@ -52,5 +52,27 @@
   "book_club": "Book Club",
   "exhibition": "Exhibition",
   "all": "All",
-  "no_data_found": "No event found"
+  "no_data_found": "No event found",
+  "event_created_successfully": "Event created successfully",
+  "search_for_event": "Search for event",
+  "unable_to_add_event":"Unable to add event. Please try again",
+  "select_event_date":"Please select a date for the event",
+  "select_event_time":"Please select a time for the event",
+  "required":"This field is Required",
+  "name_required": "Enter your name",
+  "name_too_short": "Name must be at least 2 characters",
+  "email_required": "Enter your email",
+  "invalid_email": "Please enter a valid email address",
+  "password_required": "Enter your password",
+  "invalid_password": "Password must be at least 6 characters",
+  "repassword_required": "Enter your confirm password",
+  "passwords_not_match": "Passwords don't match",
+  "no_user_found": "No user found for that email",
+  "wrong_password": "Wrong password provided for that user",
+  "weak_password": "The password provided is too weak",
+  "email_already_in_use": "The account already exists for that email",
+  "something_went_wrong": "Something went wrong try again later"
+
+
+
 }

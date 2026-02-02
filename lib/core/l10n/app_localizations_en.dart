@@ -173,4 +173,62 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_data_found => 'No event found';
+
+  @override
+  String get event_created_successfully => 'Event created successfully';
+
+  @override
+  String get search_for_event => 'Search for event';
+
+  @override
+  String get unable_to_add_event => 'Unable to add event. Please try again';
+
+  @override
+  String get select_event_date => 'Please select a date for the event';
+
+  @override
+  String get select_event_time => 'Please select a time for the event';
+
+  @override
+  String get required => 'This field is Required';
+
+  @override
+  String get name_required => 'Enter your name';
+
+  @override
+  String get name_too_short => 'Name must be at least 2 characters';
+
+  @override
+  String get email_required => 'Enter your email';
+
+  @override
+  String get invalid_email => 'Please enter a valid email address';
+
+  @override
+  String get password_required => 'Enter your password';
+
+  @override
+  String get invalid_password => 'Password must be at least 6 characters';
+
+  @override
+  String get repassword_required => 'Enter your confirm password';
+
+  @override
+  String get passwords_not_match => 'Passwords don\'t match';
+
+  @override
+  String get no_user_found => 'No user found for that email';
+
+  @override
+  String get wrong_password => 'Wrong password provided for that user';
+
+  @override
+  String get weak_password => 'The password provided is too weak';
+
+  @override
+  String get email_already_in_use =>
+      'The account already exists for that email';
+
+  @override
+  String get something_went_wrong => 'Something went wrong try again later';
 }

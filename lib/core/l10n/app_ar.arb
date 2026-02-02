@@ -51,5 +51,27 @@
   "book_club": "نادي الكتاب",
   "exhibition": "معرض",
   "all": "الكل",
-  "no_data_found": "لا يوجد حدث"
+  "no_data_found": "لا يوجد حدث",
+  "event_created_successfully": "تم إنشاء الحدث بنجاح",
+  "search_for_event": "ابحث عن حدث",
+  "unable_to_add_event":"تعذّر إضافة الحدث، يرجى المحاولة مرة أخرى",
+  "select_event_date":"يرجى اختيار تاريخ للحدث",
+  "select_event_time":"يرجى اختيار وقت للحدث",
+  "required":"هذا الحقل مطلوب",
+  "name_required": "ادخل اسمك",
+  "name_too_short": "يجب أن يكون الاسم مكونًا من حرفين على الأقل",
+  "email_required": "ادخل بريدك الإلكتروني",
+  "invalid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "password_required": "ادخل كلمة المرور",
+  "invalid_password": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+  "repassword_required": "ادخل كلمة المرور مرة أخرى",
+  "passwords_not_match": "كلمتا المرور غير متطابقتين",
+  "no_user_found": "لا يوجد حساب مسجل بهذا البريد الإلكتروني",
+  "wrong_password": "كلمة المرور غير صحيحة",
+  "weak_password": "كلمة المرور ضعيفة جدًا",
+  "email_already_in_use": "هذا البريد الإلكتروني مستخدم بالفعل",
+  "something_went_wrong": "حدث مشكلة ما برجاء المحاولة لاحقا"
+
+
+
 }

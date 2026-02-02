@@ -8,8 +8,11 @@ import 'package:eventy_app/custom_widget/custom_app_bar_leading_container.dart';
 import 'package:eventy_app/model/category_list.dart';
 import 'package:eventy_app/model/event_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
+import 'package:toastification/toastification.dart';
 
+import 'core/l10n/app_localizations.dart';
 import 'custom_widget/custom_default_tab_controller.dart';
 import 'custom_widget/custom_row_event_date_and_time.dart';
 
@@ -27,7 +30,7 @@ class _AddEventState extends State<AddEvent> {
   int _currentIndex = 0;
   DateTime? selectedEventData;
   TimeOfDay? selectedEventTime;
-
+  AppLocalizations get appLocalizations => AppLocalizations.of(context)!;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,6 +191,21 @@ class _AddEventState extends State<AddEvent> {
                     onPressed: () {
                       if (_globalKey.currentState!.validate()) {
                         if (selectedEventData == null) {
+                          toastification.show(
+                            type: ToastificationType.error,
+                            alignment: Alignment.bottomCenter,
+                            title: Text(context.appLocalizations.select_event_date),
+                            autoCloseDuration: const Duration(seconds: 5),
+                          );
+                          return;
+                        }
+                        if (selectedEventTime == null) {
+                          toastification.show(
+                            type: ToastificationType.error,
+                            alignment: Alignment.bottomCenter,
+                            title: Text(context.appLocalizations.select_event_time),
+                            autoCloseDuration: const Duration(seconds: 5),
+                          );
                           return;
                         }
                         EventDataModel data = EventDataModel(
@@ -205,8 +223,26 @@ class _AddEventState extends State<AddEvent> {
                           )[_currentIndex].darkImage!,
                           eventDate: selectedEventData!,
                         );
-                        FirestoreUtils.addEvent(data);
-                        Navigator.pop(context);
+                        EasyLoading.show();
+                         FirestoreUtils.addEvent(data).then((value){
+                          EasyLoading.dismiss();
+                          if(value){
+                            toastification.show(
+                              type: ToastificationType.success,
+                              alignment: Alignment.bottomCenter,
+                              title: Text(appLocalizations.event_created_successfully),
+                              autoCloseDuration: const Duration(seconds: 5),
+                            );
+                            Navigator.pop(context);
+                          }else{
+                            toastification.show(
+                              type: ToastificationType.error,
+                              alignment: Alignment.bottomCenter,
+                              title: Text(appLocalizations.unable_to_add_event),
+                              autoCloseDuration: const Duration(seconds: 5),
+                            );
+                          }
+                        });
                       }
                     },
                   ),
@@ -221,7 +257,7 @@ class _AddEventState extends State<AddEvent> {
 
   String? validate(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return "Requared";
+      return context.appLocalizations.required;
     }
     return null;
   }

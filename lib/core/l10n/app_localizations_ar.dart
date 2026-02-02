@@ -173,4 +173,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get no_data_found => 'لا يوجد حدث';
+
+  @override
+  String get event_created_successfully => 'تم إنشاء الحدث بنجاح';
+
+  @override
+  String get search_for_event => 'ابحث عن حدث';
+
+  @override
+  String get unable_to_add_event => 'تعذّر إضافة الحدث، يرجى المحاولة مرة أخرى';
+
+  @override
+  String get select_event_date => 'يرجى اختيار تاريخ للحدث';
+
+  @override
+  String get select_event_time => 'يرجى اختيار وقت للحدث';
+
+  @override
+  String get required => 'هذا الحقل مطلوب';
+
+  @override
+  String get name_required => 'ادخل اسمك';
+
+  @override
+  String get name_too_short => 'يجب أن يكون الاسم مكونًا من حرفين على الأقل';
+
+  @override
+  String get email_required => 'ادخل بريدك الإلكتروني';
+
+  @override
+  String get invalid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+
+  @override
+  String get password_required => 'ادخل كلمة المرور';
+
+  @override
+  String get invalid_password => 'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
+
+  @override
+  String get repassword_required => 'ادخل كلمة المرور مرة أخرى';
+
+  @override
+  String get passwords_not_match => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get no_user_found => 'لا يوجد حساب مسجل بهذا البريد الإلكتروني';
+
+  @override
+  String get wrong_password => 'كلمة المرور غير صحيحة';
+
+  @override
+  String get weak_password => 'كلمة المرور ضعيفة جدًا';
+
+  @override
+  String get email_already_in_use => 'هذا البريد الإلكتروني مستخدم بالفعل';
+
+  @override
+  String get something_went_wrong => 'حدث مشكلة ما برجاء المحاولة لاحقا';
 }

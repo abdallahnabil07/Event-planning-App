@@ -12,11 +12,18 @@ abstract class FirestoreUtils {
         );
   }
 
-  static Future<void> addEvent(EventDataModel data) async {
-    var collectionRef = _getCollectionReference();
-    var docRef = collectionRef.doc();
-    data.eventId = docRef.id;
-    await docRef.set(data);
+  static Future<bool> addEvent(EventDataModel data) async {
+    try{
+      var collectionRef = _getCollectionReference();
+      var docRef = collectionRef.doc();
+      data.eventId = docRef.id;
+      await docRef.set(data);
+      return Future.value(true);
+    }catch(error){
+    return Future.value(false);
+    }
+
+
   }
 
   static Future<List<EventDataModel>> getDataFromFireStore() async {

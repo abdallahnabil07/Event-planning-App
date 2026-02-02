@@ -21,6 +21,10 @@ dependencies:
   cloud_firestore: ^6.1.2
   flutter_bounceable: ^1.2.0
   animated_toggle_switch: ^0.8.7
+  flutter_easyloading: ^3.0.5
+  toastification: ^3.0.3
+  firebase_auth: ^6.1.4
+
 
 dev_dependencies:
   flutter_test:
