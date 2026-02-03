@@ -71,7 +71,10 @@
   "wrong_password": "Wrong password provided for that user",
   "weak_password": "The password provided is too weak",
   "email_already_in_use": "The account already exists for that email",
-  "something_went_wrong": "Something went wrong try again later"
+  "something_went_wrong": "Something went wrong try again later",
+  "event_details": "Event details",
+  "event_edit": "Event edit",
+  "deleted_successfully": "Deleted successfully"
 
 
 

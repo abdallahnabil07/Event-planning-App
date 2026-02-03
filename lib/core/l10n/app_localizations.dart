@@ -535,6 +535,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong try again later'**
   String get something_went_wrong;
+
+  /// No description provided for @event_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Event details'**
+  String get event_details;
+
+  /// No description provided for @event_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Event edit'**
+  String get event_edit;
+
+  /// No description provided for @deleted_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted successfully'**
+  String get deleted_successfully;
 }
 
 class _AppLocalizationsDelegate

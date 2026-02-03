@@ -231,4 +231,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get something_went_wrong => 'Something went wrong try again later';
+
+  @override
+  String get event_details => 'Event details';
+
+  @override
+  String get event_edit => 'Event edit';
+
+  @override
+  String get deleted_successfully => 'Deleted successfully';
 }

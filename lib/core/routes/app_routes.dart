@@ -1,8 +1,10 @@
 import 'package:eventy_app/add_event.dart';
 import 'package:eventy_app/core/routes/app_routes_name.dart';
+import 'package:eventy_app/details_event.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../edit_event.dart';
 import '../../modules/forget_password/forget_password.dart';
 import '../../modules/layout/layout.dart';
 import '../../modules/onBoarding/on_boarding_first_page.dart';
@@ -71,6 +73,16 @@ abstract class AppRoutes {
         case AppRoutesName.addEvent:
         return MaterialPageRoute(
           builder: (_) => const AddEvent(),
+          settings: settings,
+        );
+        case AppRoutesName.detailsEvent:
+        return MaterialPageRoute(
+          builder: (_) => const DetailsEvent(),
+          settings: settings,
+        );
+        case AppRoutesName.editEvent:
+        return MaterialPageRoute(
+          builder: (_) => const EditEvent(),
           settings: settings,
         );
       default:

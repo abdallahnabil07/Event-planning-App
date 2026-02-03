@@ -25,6 +25,7 @@ abstract class AppTheme {
       ),
     ),
     appBarTheme: AppBarTheme(
+      centerTitle: true,
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w400,

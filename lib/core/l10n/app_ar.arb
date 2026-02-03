@@ -70,7 +70,10 @@
   "wrong_password": "كلمة المرور غير صحيحة",
   "weak_password": "كلمة المرور ضعيفة جدًا",
   "email_already_in_use": "هذا البريد الإلكتروني مستخدم بالفعل",
-  "something_went_wrong": "حدث مشكلة ما برجاء المحاولة لاحقا"
+  "something_went_wrong": "حدث مشكلة ما برجاء المحاولة لاحقا",
+  "event_details": "تفاصيل الحدث",
+  "event_edit": "تعديل الحدث",
+  "deleted_successfully": "تم الحذف بنجاح"
 
 
 

@@ -4,7 +4,8 @@ import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:eventy_app/core/utils/firestore_utils.dart';
-import 'package:eventy_app/custom_widget/custom_app_bar_leading_container.dart';
+import 'package:eventy_app/custom_widget/app_bar_title_custom_text.dart';
+import 'package:eventy_app/custom_widget/app_bar_container_custom.dart';
 import 'package:eventy_app/model/category_list.dart';
 import 'package:eventy_app/model/event_data_model.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ import 'package:toastification/toastification.dart';
 import 'core/l10n/app_localizations.dart';
 import 'custom_widget/custom_default_tab_controller.dart';
 import 'custom_widget/custom_row_event_date_and_time.dart';
+import 'custom_widget/image_top_container_custom.dart';
+import 'custom_widget/title_description_text_custom.dart';
 
 class AddEvent extends StatefulWidget {
   const AddEvent({super.key});
@@ -30,25 +33,25 @@ class _AddEventState extends State<AddEvent> {
   int _currentIndex = 0;
   DateTime? selectedEventData;
   TimeOfDay? selectedEventTime;
+
   AppLocalizations get appLocalizations => AppLocalizations.of(context)!;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CustomAppBarLeadingContainer(
+        leading: CustomAppBarContainer(
+          width: context.paddingWidth28,
+          height: context.paddingHeight28,
           onTap: () {
             Navigator.pop(context);
           },
         ),
         centerTitle: true,
-        title: Text(
-          context.appLocalizations.addEvent,
-          style: context.textTheme.bodyMedium!.copyWith(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            color: context.isDark ? AppColors.whiteColor : AppColors.blackColor,
-          ),
+        title: AppBarTitleCustomText(
+          titleText: context.appLocalizations.addEvent,
         ),
+        actions: [],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -58,40 +61,13 @@ class _AddEventState extends State<AddEvent> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 //image
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
-                    vertical: context.paddingHeight16,
-                  ),
-                  child: Container(
-                    clipBehavior: Clip.antiAlias,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: context.isDark
-                          ? AppColors.secondDarkModeColor
-                          : AppColors.whiteColor,
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(
-                        color: context.isDark
-                            ? AppColors.secondDarkModeColor
-                            : AppColors.whiteColorBorder,
-                        width: 1,
-                      ),
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        context.isDark
-                            ? CategoryList.categories(
-                                context,
-                              )[_currentIndex].darkImage!
-                            : CategoryList.categories(
-                                context,
-                              )[_currentIndex].image!,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                ImageTopContainerCustom(
+                  lightImage: CategoryList.categories(
+                    context,
+                  )[_currentIndex].image,
+                  darkImage: CategoryList.categories(
+                    context,
+                  )[_currentIndex].darkImage,
                 ),
                 //DefaultTabController
                 CustomDefaultTabController(
@@ -105,23 +81,7 @@ class _AddEventState extends State<AddEvent> {
                   currentIndex: _currentIndex,
                 ),
                 //title
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
-                    vertical: context.paddingHeight16,
-                  ),
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    context.appLocalizations.title,
-                    style: context.textTheme.titleLarge!.copyWith(
-                      fontSize: 16,
-                      color: context.isDark
-                          ? AppColors.whiteColor
-                          : AppColors.blackColor,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                TitleDescriptionTextCustom(text: context.appLocalizations.title,),
                 //textFiledEventTitle
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -134,23 +94,7 @@ class _AddEventState extends State<AddEvent> {
                   ),
                 ),
                 //Description
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
-                    vertical: context.paddingHeight16,
-                  ),
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    context.appLocalizations.description,
-                    style: context.textTheme.titleLarge!.copyWith(
-                      fontSize: 16,
-                      color: context.isDark
-                          ? AppColors.whiteColor
-                          : AppColors.blackColor,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                TitleDescriptionTextCustom(text: context.appLocalizations.description,),
                 //textFiledEventDescription
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -194,7 +138,9 @@ class _AddEventState extends State<AddEvent> {
                           toastification.show(
                             type: ToastificationType.error,
                             alignment: Alignment.bottomCenter,
-                            title: Text(context.appLocalizations.select_event_date),
+                            title: Text(
+                              context.appLocalizations.select_event_date,
+                            ),
                             autoCloseDuration: const Duration(seconds: 5),
                           );
                           return;
@@ -203,7 +149,9 @@ class _AddEventState extends State<AddEvent> {
                           toastification.show(
                             type: ToastificationType.error,
                             alignment: Alignment.bottomCenter,
-                            title: Text(context.appLocalizations.select_event_time),
+                            title: Text(
+                              context.appLocalizations.select_event_time,
+                            ),
                             autoCloseDuration: const Duration(seconds: 5),
                           );
                           return;
@@ -224,17 +172,19 @@ class _AddEventState extends State<AddEvent> {
                           eventDate: selectedEventData!,
                         );
                         EasyLoading.show();
-                         FirestoreUtils.addEvent(data).then((value){
+                        FirestoreUtils.addEvent(data).then((value) {
                           EasyLoading.dismiss();
-                          if(value){
+                          if (value) {
                             toastification.show(
                               type: ToastificationType.success,
                               alignment: Alignment.bottomCenter,
-                              title: Text(appLocalizations.event_created_successfully),
+                              title: Text(
+                                appLocalizations.event_created_successfully,
+                              ),
                               autoCloseDuration: const Duration(seconds: 5),
                             );
                             Navigator.pop(context);
-                          }else{
+                          } else {
                             toastification.show(
                               type: ToastificationType.error,
                               alignment: Alignment.bottomCenter,

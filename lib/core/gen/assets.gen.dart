@@ -49,6 +49,13 @@ class $AssetsIconsGen {
   /// File path: assets/icons/clock.svg
   SvgGenImage get clock => const SvgGenImage('assets/icons/clock.svg');
 
+  /// File path: assets/icons/delete_icon.svg
+  SvgGenImage get deleteIcon =>
+      const SvgGenImage('assets/icons/delete_icon.svg');
+
+  /// File path: assets/icons/edit_icon.svg
+  SvgGenImage get editIcon => const SvgGenImage('assets/icons/edit_icon.svg');
+
   /// File path: assets/icons/email_icon.svg
   SvgGenImage get emailIcon => const SvgGenImage('assets/icons/email_icon.svg');
 
@@ -151,6 +158,8 @@ class $AssetsIconsGen {
     arrowRight,
     calendarAdd,
     clock,
+    deleteIcon,
+    editIcon,
     emailIcon,
     eyeSlash,
     favoriteIcon,

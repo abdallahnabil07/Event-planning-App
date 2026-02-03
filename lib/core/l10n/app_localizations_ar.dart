@@ -230,4 +230,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get something_went_wrong => 'حدث مشكلة ما برجاء المحاولة لاحقا';
+
+  @override
+  String get event_details => 'تفاصيل الحدث';
+
+  @override
+  String get event_edit => 'تعديل الحدث';
+
+  @override
+  String get deleted_successfully => 'تم الحذف بنجاح';
 }
