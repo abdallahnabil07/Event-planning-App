@@ -73,8 +73,9 @@
   "something_went_wrong": "حدث مشكلة ما برجاء المحاولة لاحقا",
   "event_details": "تفاصيل الحدث",
   "event_edit": "تعديل الحدث",
-  "deleted_successfully": "تم الحذف بنجاح"
-
-
-
+  "deleted_successfully": "تم الحذف بنجاح",
+  "update_event": "تعديل الحدث",
+  "update_successfully": "تم التعديل بنجاح",
+  "no_favorite_event_found": "لايوحد حدث مفضل",
+  "no_changes_detected": "لم يتم تعديل أي بيانات"
 }

@@ -11,7 +11,7 @@ class CustomRowEventDateAndTime extends StatelessWidget {
   final String rightTex;
   final VoidCallback? onTap;
 
-  const CustomRowEventDateAndTime({
+   CustomRowEventDateAndTime({
     super.key,
     required this.icon,
     required this.leftText,

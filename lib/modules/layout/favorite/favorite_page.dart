@@ -67,7 +67,7 @@ class _FavoriteState extends State<Favorite> {
                     return dataList.isEmpty
                         ? Center(
                             child: Text(
-                              context.appLocalizations.no_data_found,
+                              context.appLocalizations.no_favorite_event_found,
                               style: context.textTheme.bodyMedium!.copyWith(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,

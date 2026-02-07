@@ -77,7 +77,7 @@ class _SignInPageState extends State<SignInPage> {
                   bottom: sizeH * 0.018,
                 ),
                 child: CustomTextField(
-                  validator: validate,
+                  validator: emailValidate,
                   controller: _emailController,
                   hintText: context.appLocalizations.email,
                   icon: Assets.icons.emailIcon,
@@ -92,7 +92,7 @@ class _SignInPageState extends State<SignInPage> {
                   bottom: sizeH * 0.018,
                 ),
                 child: CustomTextField(
-                  validator: validate,
+                  validator: passwordValidate,
                   hintText: context.appLocalizations.password,
                   icon: Assets.icons.lockIcon,
                   isPassword: true,
@@ -213,6 +213,29 @@ class _SignInPageState extends State<SignInPage> {
   String? validate(String? value) {
     if (value == null || value.trim().isEmpty) {
       return context.appLocalizations.required;
+    }
+    return null;
+  }
+  String? emailValidate(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return context.appLocalizations.email_required;
+    }
+    final emailRegex = RegExp(
+      r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+    );
+    if (!emailRegex.hasMatch(value.trim())) {
+      return context.appLocalizations.invalid_email;
+    }
+    return null;
+  }
+
+  String? passwordValidate(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return context.appLocalizations.password_required;
+    }
+    final passwordRegex = RegExp(r'^.{6,}$');
+    if (!passwordRegex.hasMatch(value.trim())) {
+      return context.appLocalizations.invalid_password;
     }
     return null;
   }

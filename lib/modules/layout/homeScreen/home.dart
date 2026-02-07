@@ -157,7 +157,9 @@ class _HomeState extends State<Home> {
                       : ListView.separated(
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return CustomCardDetails(dataModel: dataList[index]);
+                            return CustomCardDetails(
+                              dataModel: dataList[index],
+                            );
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(height: context.paddingHeight8);

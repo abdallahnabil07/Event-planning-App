@@ -175,6 +175,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get no_data_found => 'No event found';
 
   @override
+  String get no_favorite_event_found => 'No favorite event found';
+
+  @override
   String get event_created_successfully => 'Event created successfully';
 
   @override
@@ -240,4 +243,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleted_successfully => 'Deleted successfully';
+
+  @override
+  String get update_event => 'Update event';
+
+  @override
+  String get update_successfully => 'Update successfully';
+
+  @override
+  String get no_changes_detected => 'No changes detected';
 }

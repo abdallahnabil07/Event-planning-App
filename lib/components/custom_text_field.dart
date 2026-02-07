@@ -6,7 +6,7 @@ import '../core/theme/app_colors.dart';
 enum IconPosition { start, end }
 
 class CustomTextField extends StatefulWidget {
-  final String hintText;
+  final String? hintText;
   final SvgGenImage? icon;
   final IconPosition iconPosition;
   final bool isPassword;
@@ -19,7 +19,7 @@ class CustomTextField extends StatefulWidget {
 
   const CustomTextField({
     super.key,
-    required this.hintText,
+     this.hintText,
     this.icon,
     this.iconPosition = IconPosition.start,
     this.isPassword = false,

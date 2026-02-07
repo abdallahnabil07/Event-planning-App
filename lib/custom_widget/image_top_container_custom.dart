@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../core/extensions/context_extensions.dart';
 import '../core/theme/app_colors.dart';
-import '../model/category_list.dart';
-import '../model/event_data_model.dart';
 
 class ImageTopContainerCustom extends StatelessWidget {
   final String? lightImage;

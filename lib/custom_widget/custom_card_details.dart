@@ -1,5 +1,7 @@
 import 'package:eventy_app/core/routes/app_routes_name.dart';
 import 'package:eventy_app/core/utils/firestore_utils.dart';
+import 'package:eventy_app/model/EventDetailsArgs.dart';
+import 'package:eventy_app/model/event_category_model.dart';
 import 'package:eventy_app/model/event_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
@@ -11,8 +13,13 @@ import '../core/theme/app_colors.dart';
 
 class CustomCardDetails extends StatelessWidget {
   final EventDataModel dataModel;
+  final EventCategoryModel? eventCategoryModel;
 
-  const CustomCardDetails({super.key, required this.dataModel});
+  const CustomCardDetails({
+    super.key,
+    required this.dataModel,
+     this.eventCategoryModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +30,10 @@ class CustomCardDetails extends StatelessWidget {
           Navigator.pushNamed(
             context,
             AppRoutesName.detailsEvent,
-              arguments: dataModel,
+            arguments: EventDetailsArgs(
+              event: dataModel,
+              category: eventCategoryModel,
+            ),
           );
         },
         child: ClipRRect(

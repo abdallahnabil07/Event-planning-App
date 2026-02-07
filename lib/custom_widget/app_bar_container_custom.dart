@@ -1,9 +1,6 @@
 import 'package:eventy_app/core/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../core/extensions/context_extensions.dart';
 import '../core/theme/app_colors.dart';
 

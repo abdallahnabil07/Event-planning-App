@@ -422,6 +422,12 @@ abstract class AppLocalizations {
   /// **'No event found'**
   String get no_data_found;
 
+  /// No description provided for @no_favorite_event_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorite event found'**
+  String get no_favorite_event_found;
+
   /// No description provided for @event_created_successfully.
   ///
   /// In en, this message translates to:
@@ -553,6 +559,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deleted successfully'**
   String get deleted_successfully;
+
+  /// No description provided for @update_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Update event'**
+  String get update_event;
+
+  /// No description provided for @update_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Update successfully'**
+  String get update_successfully;
+
+  /// No description provided for @no_changes_detected.
+  ///
+  /// In en, this message translates to:
+  /// **'No changes detected'**
+  String get no_changes_detected;
 }
 
 class _AppLocalizationsDelegate

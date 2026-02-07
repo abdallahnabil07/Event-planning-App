@@ -13,17 +13,15 @@ abstract class FirestoreUtils {
   }
 
   static Future<bool> addEvent(EventDataModel data) async {
-    try{
+    try {
       var collectionRef = _getCollectionReference();
       var docRef = collectionRef.doc();
       data.eventId = docRef.id;
       await docRef.set(data);
       return Future.value(true);
-    }catch(error){
-    return Future.value(false);
+    } catch (error) {
+      return Future.value(false);
     }
-
-
   }
 
   static Future<List<EventDataModel>> getDataFromFireStore() async {
@@ -36,21 +34,25 @@ abstract class FirestoreUtils {
     return eventList;
   }
 
-  static Stream<QuerySnapshot<EventDataModel>> getStreamDataFromFireStore(String categoryId) {
+  static Stream<QuerySnapshot<EventDataModel>> getStreamDataFromFireStore(
+    String categoryId,
+  ) {
     var collectionRef = FirebaseFirestore.instance
         .collection(EventDataModel.collectionName)
         .withConverter<EventDataModel>(
-      fromFirestore: (snapshot, _) => EventDataModel.fromFireStore(snapshot.data()!),
-      toFirestore: (value, _) => value.toFireStore(),
-    );
+          fromFirestore: (snapshot, _) =>
+              EventDataModel.fromFireStore(snapshot.data()!),
+          toFirestore: (value, _) => value.toFireStore(),
+        );
 
     if (categoryId == "all") {
       return collectionRef.snapshots();
     } else {
-      return collectionRef.where("eventCategoryId", isEqualTo: categoryId).snapshots();
+      return collectionRef
+          .where("eventCategoryId", isEqualTo: categoryId)
+          .snapshots();
     }
   }
-
 
   static Stream<QuerySnapshot<EventDataModel>>
   getStreamFavoriteDataFromFireStore() {

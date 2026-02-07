@@ -175,6 +175,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get no_data_found => 'لا يوجد حدث';
 
   @override
+  String get no_favorite_event_found => 'لايوحد حدث مفضل';
+
+  @override
   String get event_created_successfully => 'تم إنشاء الحدث بنجاح';
 
   @override
@@ -239,4 +242,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleted_successfully => 'تم الحذف بنجاح';
+
+  @override
+  String get update_event => 'تعديل الحدث';
+
+  @override
+  String get update_successfully => 'تم التعديل بنجاح';
+
+  @override
+  String get no_changes_detected => 'لم يتم تعديل أي بيانات';
 }

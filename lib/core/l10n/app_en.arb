@@ -53,6 +53,7 @@
   "exhibition": "Exhibition",
   "all": "All",
   "no_data_found": "No event found",
+  "no_favorite_event_found": "No favorite event found",
   "event_created_successfully": "Event created successfully",
   "search_for_event": "Search for event",
   "unable_to_add_event":"Unable to add event. Please try again",
@@ -74,8 +75,8 @@
   "something_went_wrong": "Something went wrong try again later",
   "event_details": "Event details",
   "event_edit": "Event edit",
-  "deleted_successfully": "Deleted successfully"
-
-
-
+  "deleted_successfully": "Deleted successfully",
+  "update_event": "Update event",
+  "update_successfully": "Update successfully",
+  "no_changes_detected": "No changes detected"
 }

@@ -2,7 +2,6 @@ import 'package:eventy_app/components/custom_elevated_button.dart';
 import 'package:eventy_app/components/custom_text_field.dart';
 import 'package:eventy_app/core/extensions/context_extensions.dart';
 import 'package:eventy_app/core/gen/assets.gen.dart';
-import 'package:eventy_app/core/theme/app_colors.dart';
 import 'package:eventy_app/core/utils/firestore_utils.dart';
 import 'package:eventy_app/custom_widget/app_bar_title_custom_text.dart';
 import 'package:eventy_app/custom_widget/app_bar_container_custom.dart';
@@ -12,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
 import 'package:toastification/toastification.dart';
-
 import 'core/l10n/app_localizations.dart';
 import 'custom_widget/custom_default_tab_controller.dart';
 import 'custom_widget/custom_row_event_date_and_time.dart';
@@ -81,7 +79,9 @@ class _AddEventState extends State<AddEvent> {
                   currentIndex: _currentIndex,
                 ),
                 //title
-                TitleDescriptionTextCustom(text: context.appLocalizations.title,),
+                TitleDescriptionTextCustom(
+                  text: context.appLocalizations.title,
+                ),
                 //textFiledEventTitle
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -94,7 +94,9 @@ class _AddEventState extends State<AddEvent> {
                   ),
                 ),
                 //Description
-                TitleDescriptionTextCustom(text: context.appLocalizations.description,),
+                TitleDescriptionTextCustom(
+                  text: context.appLocalizations.description,
+                ),
                 //textFiledEventDescription
                 Padding(
                   padding: EdgeInsets.symmetric(
