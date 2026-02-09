@@ -251,4 +251,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get no_changes_detected => 'لم يتم تعديل أي بيانات';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get get_started => 'لنبدأ';
+
+  @override
+  String get skip => 'تخطي';
 }

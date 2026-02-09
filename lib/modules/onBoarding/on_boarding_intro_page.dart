@@ -10,16 +10,14 @@ import '../../core/routes/app_routes_name.dart';
 import '../../core/theme/app_colors.dart';
 import '../app_provider/app_settings_provider.dart';
 
-
-
-class OnBoardingFirstPage extends StatefulWidget {
-  const OnBoardingFirstPage({super.key});
+class OnBoardingIntroPage extends StatefulWidget {
+  const OnBoardingIntroPage({super.key});
 
   @override
-  State<OnBoardingFirstPage> createState() => _OnBoardingFirstPageState();
+  State<OnBoardingIntroPage> createState() => _OnBoardingIntroPageState();
 }
 
-class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
+class _OnBoardingIntroPageState extends State<OnBoardingIntroPage> {
   @override
   Widget build(BuildContext context) {
     final appSettingsProvider = Provider.of<AppSettingsProvider>(context);
@@ -29,35 +27,27 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
     final image = isDark
         ? Assets.images.firstImageOfIntro1DarkChange.image(fit: BoxFit.contain)
         : Assets.images.firstImageOfIntro1LightChange.image(
-        fit: BoxFit.contain);
-    final moonIcon = isDark
-        ? Assets.icons.moonDarkMode
-        : Assets.icons.moon;
+            fit: BoxFit.contain,
+          );
+    final moonIcon = isDark ? Assets.icons.moonDarkMode : Assets.icons.moon;
     final containerColorLightModeSelected = isDark
         ? AppColors.mainDarkModeColor
         : AppColors.strokeDarkModeColor;
     final containerColorLightModeUnSelected = isDark
         ? AppColors.secondDarkModeColor
         : AppColors.whiteColor;
-    final textColorTitle = isDark
-        ? AppColors.whiteColor
-        : AppColors.blackColor;
+    final textColorTitle = isDark ? AppColors.whiteColor : AppColors.blackColor;
     final textColorDetails = isDark
         ? AppColors.lightGreyColor
         : AppColors.darkGreyColor;
     final textColorLanguageAndTheme = isDark
         ? AppColors.whiteColor
         : AppColors.strokeDarkModeColor;
-    final isLightSelected =
-        appSettingsProvider.currentTheme == ThemeMode.light;
+    final isLightSelected = appSettingsProvider.currentTheme == ThemeMode.light;
 
     final lightTextColor = isLightSelected
         ? (isDark ? AppColors.whiteColor : AppColors.strokeDarkModeColor)
         : AppColors.whiteColor;
-
-
-
-
 
     return Scaffold(
       body: Column(
@@ -89,7 +79,9 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
                 textAlign: TextAlign.start,
                 context.appLocalizations.firstOnBoardingTitle,
                 style: context.textTheme.titleLarge!.copyWith(
-                    color: textColorTitle, fontWeight: FontWeight.w600),
+                  color: textColorTitle,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -104,7 +96,8 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               textAlign: TextAlign.start,
               context.appLocalizations.firstOnBoardingDetails,
               style: context.textTheme.titleMedium!.copyWith(
-                  color: textColorDetails),
+                color: textColorDetails,
+              ),
             ),
           ),
           //language
@@ -178,7 +171,7 @@ class _OnBoardingFirstPageState extends State<OnBoardingFirstPage> {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  AppRoutesName.customSmoothPageIndicator,
+                  AppRoutesName.onBoardingScreen,
                 );
               },
             ),

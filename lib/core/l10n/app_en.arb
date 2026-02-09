@@ -78,5 +78,9 @@
   "deleted_successfully": "Deleted successfully",
   "update_event": "Update event",
   "update_successfully": "Update successfully",
-  "no_changes_detected": "No changes detected"
+  "no_changes_detected": "No changes detected",
+  "next": "Next",
+  "get_started": "Get Started",
+  "skip": "Skip"
+
 }

@@ -77,5 +77,9 @@
   "update_event": "تعديل الحدث",
   "update_successfully": "تم التعديل بنجاح",
   "no_favorite_event_found": "لايوحد حدث مفضل",
-  "no_changes_detected": "لم يتم تعديل أي بيانات"
+  "no_changes_detected": "لم يتم تعديل أي بيانات",
+  "next": "التالي",
+  "get_started": "لنبدأ",
+  "skip": "تخطي"
+
 }

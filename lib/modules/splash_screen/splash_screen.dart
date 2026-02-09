@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(
-          context, AppRoutesName.onBoardingFirstPage);
+          context, AppRoutesName.onBoardingIntroPage);
     });
   }
 

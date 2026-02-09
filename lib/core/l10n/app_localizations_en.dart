@@ -252,4 +252,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_changes_detected => 'No changes detected';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get get_started => 'Get Started';
+
+  @override
+  String get skip => 'Skip';
 }

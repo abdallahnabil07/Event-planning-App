@@ -254,6 +254,7 @@ class _EditEventState extends State<EditEvent> {
       );
     } catch (e) {
       EasyLoading.dismiss();
+
       toastification.show(
         alignment: Alignment.bottomCenter,
         type: ToastificationType.error,

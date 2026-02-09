@@ -226,9 +226,9 @@ class $AssetsImagesGen {
   AssetGenImage get birthdayImageLargeDark =>
       const AssetGenImage('assets/images/birthday_image_large_dark.png');
 
-  /// File path: assets/images/birthday_image_large_light.png
-  AssetGenImage get birthdayImageLargeLight =>
-      const AssetGenImage('assets/images/birthday_image_large_light.png');
+  /// File path: assets/images/birthday_image_large_mode.png
+  AssetGenImage get birthdayImageLargeMode =>
+      const AssetGenImage('assets/images/birthday_image_large_mode.png');
 
   /// File path: assets/images/birthday_image_small_dark.png
   AssetGenImage get birthdayImageSmallDark =>
@@ -266,9 +266,9 @@ class $AssetsImagesGen {
   AssetGenImage get exhibitionImageLargeDark =>
       const AssetGenImage('assets/images/exhibition _image_large_dark.png');
 
-  /// File path: assets/images/exhibition _image_large_light.png
-  AssetGenImage get exhibitionImageLargeLight =>
-      const AssetGenImage('assets/images/exhibition _image_large_light.png');
+  /// File path: assets/images/exhibition _image_large_mode.png
+  AssetGenImage get exhibitionImageLargeMode =>
+      const AssetGenImage('assets/images/exhibition _image_large_mode.png');
 
   /// File path: assets/images/exhibition _image_small_dark.png
   AssetGenImage get exhibitionImageSmallDark =>
@@ -294,6 +294,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/first_image_of_intro_1_light_change.png
   AssetGenImage get firstImageOfIntro1LightChange => const AssetGenImage(
     'assets/images/first_image_of_intro_1_light_change.png',
+  );
+
+  /// File path: assets/images/first_on_boarding_image_dark_mode.png
+  AssetGenImage get firstOnBoardingImageDarkMode => const AssetGenImage(
+    'assets/images/first_on_boarding_image_dark_mode.png',
+  );
+
+  /// File path: assets/images/first_on_boarding_image_light_mode.png
+  AssetGenImage get firstOnBoardingImageLightMode => const AssetGenImage(
+    'assets/images/first_on_boarding_image_light_mode.png',
   );
 
   /// File path: assets/images/forgot_password_image.png
@@ -331,9 +341,9 @@ class $AssetsImagesGen {
   AssetGenImage get meetingImageLargeDark =>
       const AssetGenImage('assets/images/meeting_image_large_dark.png');
 
-  /// File path: assets/images/meeting_image_large_light.png
-  AssetGenImage get meetingImageLargeLight =>
-      const AssetGenImage('assets/images/meeting_image_large_light.png');
+  /// File path: assets/images/meeting_image_large_mode.png
+  AssetGenImage get meetingImageLargeMode =>
+      const AssetGenImage('assets/images/meeting_image_large_mode.png');
 
   /// File path: assets/images/meeting_image_small_dark.png
   AssetGenImage get meetingImageSmallDark =>
@@ -354,6 +364,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/second_image_of_intro_2.png
   AssetGenImage get secondImageOfIntro2 =>
       const AssetGenImage('assets/images/second_image_of_intro_2.png');
+
+  /// File path: assets/images/second_on_boarding_image_dark_mode.png
+  AssetGenImage get secondOnBoardingImageDarkMode => const AssetGenImage(
+    'assets/images/second_on_boarding_image_dark_mode.png',
+  );
+
+  /// File path: assets/images/second_on_boarding_image_light_mode.png
+  AssetGenImage get secondOnBoardingImageLightMode => const AssetGenImage(
+    'assets/images/second_on_boarding_image_light_mode.png',
+  );
 
   /// File path: assets/images/sport_image_large_dark.png
   AssetGenImage get sportImageLargeDark =>
@@ -379,6 +399,16 @@ class $AssetsImagesGen {
   AssetGenImage get thirdImageOfIntro3Dark =>
       const AssetGenImage('assets/images/third_image_of_intro_3_dark.png');
 
+  /// File path: assets/images/third_on_boarding_image_dark_mode.png
+  AssetGenImage get thirdOnBoardingImageDarkMode => const AssetGenImage(
+    'assets/images/third_on_boarding_image_dark_mode.png',
+  );
+
+  /// File path: assets/images/third_on_boarding_image_light_mode.png
+  AssetGenImage get thirdOnBoardingImageLightMode => const AssetGenImage(
+    'assets/images/third_on_boarding_image_light_mode.png',
+  );
+
   /// List of all assets
   List<AssetGenImage> get values => [
     eg,
@@ -390,7 +420,7 @@ class $AssetsImagesGen {
     sunLightMood,
     usa,
     birthdayImageLargeDark,
-    birthdayImageLargeLight,
+    birthdayImageLargeMode,
     birthdayImageSmallDark,
     birthdayImageSmallLight,
     bookClubImageLargeDark,
@@ -400,13 +430,15 @@ class $AssetsImagesGen {
     eventlyLogoTop,
     eventlyLogoTopChange,
     exhibitionImageLargeDark,
-    exhibitionImageLargeLight,
+    exhibitionImageLargeMode,
     exhibitionImageSmallDark,
     exhibitionImageSmallLight,
     firstImageOfIntro1,
     firstImageOfIntro1Dark,
     firstImageOfIntro1DarkChange,
     firstImageOfIntro1LightChange,
+    firstOnBoardingImageDarkMode,
+    firstOnBoardingImageLightMode,
     forgotPasswordImage,
     forgotPasswordImageDark,
     forgotPasswordImageLight,
@@ -416,18 +448,22 @@ class $AssetsImagesGen {
     logoTopLightMode,
     me,
     meetingImageLargeDark,
-    meetingImageLargeLight,
+    meetingImageLargeMode,
     meetingImageSmallDark,
     meetingImageSmallLight,
     routeLogoSplashFooter,
     routeLogoSplashFooterChange,
     secondImageOfIntro2,
+    secondOnBoardingImageDarkMode,
+    secondOnBoardingImageLightMode,
     sportImageLargeDark,
     sportImageLargeLight,
     sportImageSmallDark,
     sportImageSmallLight,
     thirdImageOfIntro3,
     thirdImageOfIntro3Dark,
+    thirdOnBoardingImageDarkMode,
+    thirdOnBoardingImageLightMode,
   ];
 }
 

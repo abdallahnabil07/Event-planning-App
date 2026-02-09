@@ -577,6 +577,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No changes detected'**
   String get no_changes_detected;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @get_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get get_started;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
 }
 
 class _AppLocalizationsDelegate

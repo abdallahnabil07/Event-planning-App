@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
     );
     return ToastificationWrapper(
       child: MaterialApp(
+        // showPerformanceOverlay: true,
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
         themeMode: appSettingsProvider.currentTheme,
