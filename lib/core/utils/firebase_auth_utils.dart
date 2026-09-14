@@ -1,4 +1,4 @@
-import 'package:eventy_app/core/enums/auth_error.dart';
+import 'package:event_app/core/enums/auth_error.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class FirebaseAuthUtils {

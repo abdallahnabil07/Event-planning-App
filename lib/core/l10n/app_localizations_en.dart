@@ -261,4 +261,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get skip => 'Skip';
+
+  @override
+  String get sign_in_cancelled => 'Sign in was cancelled';
+
+  @override
+  String get check_your_email =>
+      'We\'ve sent you an email. Please check your inbox.';
+
+  @override
+  String get retry => 'Retry';
 }

@@ -1,6 +1,5 @@
-import 'package:eventy_app/core/extensions/context_extensions.dart';
+import 'package:event_app/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
-
 import '../core/gen/assets.gen.dart';
 import 'event_category_model.dart';
 

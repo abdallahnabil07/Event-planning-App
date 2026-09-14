@@ -1,21 +1,23 @@
-import 'package:eventy_app/components/custom_elevated_button.dart';
-import 'package:eventy_app/components/custom_text_field.dart';
-import 'package:eventy_app/core/extensions/context_extensions.dart';
-import 'package:eventy_app/core/gen/assets.gen.dart';
-import 'package:eventy_app/core/utils/firestore_utils.dart';
-import 'package:eventy_app/custom_widget/app_bar_title_custom_text.dart';
-import 'package:eventy_app/custom_widget/app_bar_container_custom.dart';
-import 'package:eventy_app/model/category_list.dart';
-import 'package:eventy_app/model/event_data_model.dart';
+import 'package:event_app/core/widgets/components/app_elevated_button.dart';
+import 'package:event_app/core/widgets/components/app_text_field.dart';
+import 'package:event_app/core/extensions/context_extensions.dart';
+import 'package:event_app/core/gen/assets.gen.dart';
+import 'package:event_app/core/widgets/appbar_icon_button.dart';
+import 'package:event_app/core/widgets/appbar_title.dart';
+import 'package:event_app/features/events/presentation/widgets/event_category_tab_bar.dart';
+import 'package:event_app/core/widgets/event_info_row.dart';
+import 'package:event_app/core/widgets/hero_image_container.dart';
+import 'package:event_app/core/widgets/section_label.dart';
+import 'package:event_app/model/category_list.dart';
+import 'package:event_app/features/events/domain/entity/event_entity.dart';
+import 'package:event_app/features/events/presentation/cubit/events_cubit.dart';
+import 'package:event_app/core/widgets/components/toastification_custom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:toastification/toastification.dart';
-import 'core/l10n/app_localizations.dart';
-import 'custom_widget/custom_default_tab_controller.dart';
-import 'custom_widget/custom_row_event_date_and_time.dart';
-import 'custom_widget/image_top_container_custom.dart';
-import 'custom_widget/title_description_text_custom.dart';
 
 class AddEvent extends StatefulWidget {
   const AddEvent({super.key});
@@ -32,174 +34,130 @@ class _AddEventState extends State<AddEvent> {
   DateTime? selectedEventData;
   TimeOfDay? selectedEventTime;
 
-  AppLocalizations get appLocalizations => AppLocalizations.of(context)!;
+  @override
+  void dispose() {
+    titleController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: CustomAppBarContainer(
-          width: context.paddingWidth28,
-          height: context.paddingHeight28,
-          onTap: () {
-            Navigator.pop(context);
-          },
+    final categories = CategoryList.categories(context);
+
+    return BlocListener<EventsCubit, EventsState>(
+      listener: (context, state) {
+        if (state is EventsLoading) {
+          EasyLoading.show();
+        } else {
+          EasyLoading.dismiss();
+        }
+
+        if (state is EventsOperationSuccess) {
+          ToastificationCustom.show(
+            context,
+            type: ToastificationType.success,
+            title: context.appLocalizations.event_created_successfully,
+          );
+          Navigator.pop(context);
+        }
+
+        if (state is EventsFailure) {
+          ToastificationCustom.show(
+            context,
+            type: ToastificationType.error,
+            title: context.appLocalizations.unable_to_add_event,
+          );
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: AppBarIconButton(
+            width: context.paddingWidth28,
+            height: context.paddingHeight28,
+            onTap: () => Navigator.pop(context),
+          ),
+          centerTitle: true,
+          title: AppBarTitle(titleText: context.appLocalizations.addEvent),
+          actions: const [],
         ),
-        centerTitle: true,
-        title: AppBarTitleCustomText(
-          titleText: context.appLocalizations.addEvent,
-        ),
-        actions: [],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Form(
-            key: _globalKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                //image
-                ImageTopContainerCustom(
-                  lightImage: CategoryList.categories(
-                    context,
-                  )[_currentIndex].image,
-                  darkImage: CategoryList.categories(
-                    context,
-                  )[_currentIndex].darkImage,
-                ),
-                //DefaultTabController
-                CustomDefaultTabController(
-                  categories: CategoryList.categories(context),
-                  length: CategoryList.categories(context).length,
-                  onTap: (int index) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
-                  },
-                  currentIndex: _currentIndex,
-                ),
-                //title
-                TitleDescriptionTextCustom(
-                  text: context.appLocalizations.title,
-                ),
-                //textFiledEventTitle
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Form(
+              key: _globalKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  // image
+                  HeroImageContainer(
+                    lightImage: categories[_currentIndex].image,
+                    darkImage: categories[_currentIndex].darkImage,
                   ),
-                  child: CustomTextField(
-                    validator: validate,
-                    controller: titleController,
-                    hintText: context.appLocalizations.eventTitle,
-                  ),
-                ),
-                //Description
-                TitleDescriptionTextCustom(
-                  text: context.appLocalizations.description,
-                ),
-                //textFiledEventDescription
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
-                  ),
-                  child: CustomTextField(
-                    validator: validate,
-                    controller: descriptionController,
-                    hintText: context.appLocalizations.eventDescription,
-                    maxLine: 6,
-                  ),
-                ),
-                //eventData
-                CustomRowEventDateAndTime(
-                  onTap: getSelectedDate,
-                  icon: Assets.icons.calendarAdd,
-                  leftText: context.appLocalizations.eventDate,
-                  rightTex: selectedEventData != null
-                      ? (DateFormat("dd,MMM yyyy").format(selectedEventData!))
-                      : context.appLocalizations.chooseDate,
-                ),
-                //eventTime
-                CustomRowEventDateAndTime(
-                  onTap: getSelectedTime,
-                  icon: Assets.icons.clock,
-                  leftText: context.appLocalizations.eventTime,
-                  rightTex: selectedEventTime != null
-                      ? selectedEventTime!.format(context)
-                      : context.appLocalizations.chooseTime,
-                ),
-                //elevatedButton
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.paddingWidth16,
-                  ),
-                  child: CustomElevatedButton(
-                    textButton: context.appLocalizations.addEvent,
-                    onPressed: () {
-                      if (_globalKey.currentState!.validate()) {
-                        if (selectedEventData == null) {
-                          toastification.show(
-                            type: ToastificationType.error,
-                            alignment: Alignment.bottomCenter,
-                            title: Text(
-                              context.appLocalizations.select_event_date,
-                            ),
-                            autoCloseDuration: const Duration(seconds: 5),
-                          );
-                          return;
-                        }
-                        if (selectedEventTime == null) {
-                          toastification.show(
-                            type: ToastificationType.error,
-                            alignment: Alignment.bottomCenter,
-                            title: Text(
-                              context.appLocalizations.select_event_time,
-                            ),
-                            autoCloseDuration: const Duration(seconds: 5),
-                          );
-                          return;
-                        }
-                        EventDataModel data = EventDataModel(
-                          eventTitle: titleController.text,
-                          eventDescription: descriptionController.text,
-                          eventTime: selectedEventTime!,
-                          eventCategoryId: CategoryList.categories(
-                            context,
-                          )[_currentIndex].id,
-                          categoryLightImage: CategoryList.categories(
-                            context,
-                          )[_currentIndex].image!,
-                          categoryDarkImage: CategoryList.categories(
-                            context,
-                          )[_currentIndex].darkImage!,
-                          eventDate: selectedEventData!,
-                        );
-                        EasyLoading.show();
-                        FirestoreUtils.addEvent(data).then((value) {
-                          EasyLoading.dismiss();
-                          if (value) {
-                            toastification.show(
-                              type: ToastificationType.success,
-                              alignment: Alignment.bottomCenter,
-                              title: Text(
-                                appLocalizations.event_created_successfully,
-                              ),
-                              autoCloseDuration: const Duration(seconds: 5),
-                            );
-                            Navigator.pop(context);
-                          } else {
-                            toastification.show(
-                              type: ToastificationType.error,
-                              alignment: Alignment.bottomCenter,
-                              title: Text(appLocalizations.unable_to_add_event),
-                              autoCloseDuration: const Duration(seconds: 5),
-                            );
-                          }
-                        });
-                      }
+                  // tab bar
+                  EventCategoryTabBar(
+                    categories: categories,
+                    length: categories.length,
+                    onTap: (int index) {
+                      setState(() => _currentIndex = index);
                     },
+                    currentIndex: _currentIndex,
                   ),
-                ),
-              ],
+                  // title
+                  SectionLabel(text: context.appLocalizations.title),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: AppTextField(
+                      validator: (v) => v == null || v.trim().isEmpty
+                          ? context.appLocalizations.required
+                          : null,
+                      controller: titleController,
+                      hintText: context.appLocalizations.eventTitle,
+                    ),
+                  ),
+                  // description
+                  SectionLabel(text: context.appLocalizations.description),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: AppTextField(
+                      validator: (v) => v == null || v.trim().isEmpty
+                          ? context.appLocalizations.required
+                          : null,
+                      controller: descriptionController,
+                      hintText: context.appLocalizations.eventDescription,
+                      maxLine: 6,
+                    ),
+                  ),
+                  // event date
+                  EventInfoRow(
+                    onTap: getSelectedDate,
+                    icon: Assets.icons.calendarAdd,
+                    leftText: context.appLocalizations.eventDate,
+                    rightText: selectedEventData != null
+                        ? DateFormat("dd,MMM yyyy").format(selectedEventData!)
+                        : context.appLocalizations.chooseDate,
+                  ),
+                  // event time
+                  EventInfoRow(
+                    onTap: getSelectedTime,
+                    icon: Assets.icons.clock,
+                    leftText: context.appLocalizations.eventTime,
+                    rightText: selectedEventTime != null
+                        ? selectedEventTime!.format(context)
+                        : context.appLocalizations.chooseTime,
+                  ),
+                  // add button
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 16.h,
+                    ),
+                    child: AppElevatedButton(
+                      textButton: context.appLocalizations.addEvent,
+                      onPressed: _addEvent,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -207,22 +165,50 @@ class _AddEventState extends State<AddEvent> {
     );
   }
 
-  String? validate(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return context.appLocalizations.required;
+  void _addEvent() {
+    if (!_globalKey.currentState!.validate()) return;
+
+    if (selectedEventData == null) {
+      ToastificationCustom.show(
+        context,
+        type: ToastificationType.error,
+        title: context.appLocalizations.select_event_date,
+      );
+      return;
     }
-    return null;
+
+    if (selectedEventTime == null) {
+      ToastificationCustom.show(
+        context,
+        type: ToastificationType.error,
+        title: context.appLocalizations.select_event_time,
+      );
+      return;
+    }
+
+    final categories = CategoryList.categories(context);
+
+    // ✅ use EventEntity instead of EventDataModel
+    final event = EventEntity(
+      eventTitle: titleController.text,
+      eventDescription: descriptionController.text,
+      eventTime: selectedEventTime!,
+      eventCategoryId: categories[_currentIndex].id,
+      categoryLightImage: categories[_currentIndex].image!,
+      categoryDarkImage: categories[_currentIndex].darkImage!,
+      eventDate: selectedEventData!,
+    );
+
+    context.read<EventsCubit>().addEvent(event); // ✅ cubit handles the rest
   }
 
   void getSelectedDate() async {
-    var currentTime = await showDatePicker(
+    final date = await showDatePicker(
       context: context,
       firstDate: DateTime.now(),
-      lastDate: DateTime.now().add(Duration(days: 365)),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
     );
-    setState(() {
-      selectedEventData = currentTime;
-    });
+    setState(() => selectedEventData = date);
   }
 
   void getSelectedTime() async {
@@ -230,11 +216,6 @@ class _AddEventState extends State<AddEvent> {
       context: context,
       initialTime: TimeOfDay.now(),
     );
-
-    if (time != null) {
-      setState(() {
-        selectedEventTime = time;
-      });
-    }
+    if (time != null) setState(() => selectedEventTime = time);
   }
 }

@@ -81,6 +81,8 @@
   "no_changes_detected": "No changes detected",
   "next": "Next",
   "get_started": "Get Started",
-  "skip": "Skip"
-
+  "skip": "Skip",
+  "sign_in_cancelled": "Sign in was cancelled",
+  "check_your_email": "We've sent you an email. Please check your inbox.",
+  "retry": "Retry"
 }

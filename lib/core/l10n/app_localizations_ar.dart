@@ -260,4 +260,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get skip => 'تخطي';
+
+  @override
+  String get sign_in_cancelled => 'تم إلغاء تسجيل الدخول';
+
+  @override
+  String get check_your_email =>
+      'تم إرسال رسالة إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد.';
+
+  @override
+  String get retry => 'إعادة المحاولة';
 }

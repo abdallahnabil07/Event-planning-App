@@ -1,4 +1,4 @@
-# eventy_app
+# event_app
 
 Task Manger
 

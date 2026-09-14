@@ -1,12 +1,14 @@
-import 'package:eventy_app/core/extensions/context_extensions.dart';
-import 'package:eventy_app/core/gen/assets.gen.dart';
-import 'package:eventy_app/core/routes/app_routes_name.dart';
-import 'package:eventy_app/core/theme/app_colors.dart';
-import 'package:eventy_app/modules//layout/favorite/favorite_page.dart';
-import 'package:eventy_app/modules//layout/profile/profile_page.dart';
+import 'package:event_app/core/app_settings/%20cubit/app_settings_cubit.dart';
+import 'package:event_app/core/extensions/context_extensions.dart';
+import 'package:event_app/core/gen/assets.gen.dart';
+import 'package:event_app/core/routes/app_routes_name.dart';
+import 'package:event_app/core/theme/app_colors.dart';
+import 'package:event_app/features/events/presentation/cubit/events_cubit.dart';
+import 'package:event_app/features/events/presentation/views/favorite_page.dart';
+import 'package:event_app/features/profile/presentation/view/profile_page.dart';
 import 'package:flutter/material.dart';
-
-import 'homeScreen/home.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/events/presentation/views/home.dart';
 
 class Layout extends StatefulWidget {
   const Layout({super.key});
@@ -16,33 +18,43 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  final List<Widget> _page = [Home(), Favorite(), Profile()];
+  final List<Widget> _page = [const Home(), const Favorite(), const Profile()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _page[context.provider.currentIndex],
+      body: _page[context.watch<AppSettingsCubit>().state.currentIndex],
       floatingActionButton: FloatingActionButton(
-        backgroundColor: context.isDark? AppColors.mainDarkModeColor:AppColors.primaryColor,
+        backgroundColor: context.isDark
+            ? AppColors.primaryDark
+            : AppColors.primary,
         shape: const CircleBorder(),
         onPressed: () {
           Navigator.pushNamed(context, AppRoutesName.addEvent);
         },
-        child: Icon(Icons.add,color: AppColors.whiteColor,size: 24,),
+        child: const Icon(Icons.add, color: AppColors.surface, size: 24),
       ),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadiusGeometry.only(
+        borderRadius: const BorderRadiusGeometry.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
         child: BottomNavigationBar(
           elevation: 20,
-          currentIndex: context.provider.currentIndex,
-          onTap: context.provider.changeCurrentIndex,
-          backgroundColor: context.isDark
-              ? AppColors.darkModeColor
-              : AppColors.whiteColor,
+          currentIndex: context.watch<AppSettingsCubit>().state.currentIndex,
+          onTap: (index) {
+            context.read<AppSettingsCubit>().changeCurrentIndex(index);
 
+            // ✅ switch stream based on tab
+            if (index == 0) {
+              context.read<EventsCubit>().getEvents('all');
+            } else if (index == 1) {
+              context.read<EventsCubit>().getFavoriteEvents();
+            }
+          },
+          backgroundColor: context.isDark
+              ? AppColors.backgroundDark
+              : AppColors.surface,
           items: [
             BottomNavigationBarItem(
               label: context.appLocalizations.home,

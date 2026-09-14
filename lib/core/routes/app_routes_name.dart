@@ -11,6 +11,6 @@ abstract class AppRoutesName {
   static const forgetPassword = "/forget_password";
   static const homeScreen = "/home_screen";
   static const addEvent = "/add_event";
-  static const detailsEvent = "/details_event";
+  static const eventDetails = "/event_details";
   static const editEvent = "/edit_event";
 }

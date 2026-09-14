@@ -595,6 +595,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skip'**
   String get skip;
+
+  /// No description provided for @sign_in_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in was cancelled'**
+  String get sign_in_cancelled;
+
+  /// No description provided for @check_your_email.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ve sent you an email. Please check your inbox.'**
+  String get check_your_email;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate

@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '960301872496',
     projectId: 'event-app-abdallah',
     storageBucket: 'event-app-abdallah.firebasestorage.app',
-    iosBundleId: 'com.example.eventyApp',
+    iosBundleId: 'com.example.eventApp',
   );
 
 }

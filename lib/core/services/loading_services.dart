@@ -1,4 +1,4 @@
-import 'package:eventy_app/core/theme/app_colors.dart';
+import 'package:event_app/core/theme/app_colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void configLoading() {
@@ -8,9 +8,9 @@ void configLoading() {
     ..indicatorSize = 45.0
     ..radius = 12.0
     ..maskType = EasyLoadingMaskType.black
-    ..backgroundColor = AppColors.whiteColor
-    ..indicatorColor = AppColors.primaryColor
-    ..textColor = AppColors.lightGreyColor
+    ..backgroundColor = AppColors.surface
+    ..indicatorColor = AppColors.primary
+    ..textColor = AppColors.textHint
     ..userInteractions = false
     ..dismissOnTap = false;
 }

@@ -1,4 +1,4 @@
-name: eventy_app
+name: event_app
 description: "Task Manger"
 publish_to: 'none'
 version: 1.0.0+1
@@ -23,7 +23,13 @@ dependencies:
   animated_toggle_switch: ^0.8.7
   flutter_easyloading: ^3.0.5
   toastification: ^3.0.3
-  firebase_auth: ^6.1.4
+  firebase_auth: ^6.5.4
+  flutter_screenutil: ^5.9.3
+  flutter_bloc: ^9.1.1
+  bloc: ^9.2.1
+  google_sign_in: ^7.2.0
+  get_it: ^9.2.1
+  google_sign_in_android: 7.2.0
 
 
 dev_dependencies:

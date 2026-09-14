@@ -1,29 +1,36 @@
-
-
+import 'package:event_app/core/app_settings/%20cubit/app_settings_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:toastification/toastification.dart';
 
+import 'core/di/service_locator.dart';
 import 'core/l10n/app_localizations.dart';
 import 'core/routes/app_routes.dart';
 import 'core/routes/app_routes_name.dart';
 import 'core/services/loading_services.dart';
 import 'core/theme/app_theme.dart';
 import 'firebase_options.dart';
-import 'modules/app_provider/app_settings_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  configLoading();
+  await GoogleSignIn.instance.initialize(
+    serverClientId:
+        '960301872496-nsp63lbhphgrvfuget7tnlrr66b1vh62.apps.googleusercontent.com',
+  );
+  setupServiceLocator();
+  sl<AppSettingsCubit>().initTheme();
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => AppSettingsProvider(),
-      child: MyApp(),
+    BlocProvider(
+      create: (_) => sl<AppSettingsCubit>(),
+      child: const MyApp(),
     ),
   );
-  configLoading();
 }
 
 class MyApp extends StatelessWidget {
@@ -31,25 +38,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appSettingsProvider = Provider.of<AppSettingsProvider>(
-      context,
-      listen: true,
-    );
-    return ToastificationWrapper(
-      child: MaterialApp(
-        // showPerformanceOverlay: true,
-        debugShowCheckedModeBanner: false,
-        builder: EasyLoading.init(),
-        themeMode: appSettingsProvider.currentTheme,
-        theme: AppTheme.lightMode,
-        darkTheme: AppTheme.darkMode,
-        title: "Event app",
-        initialRoute: AppRoutesName.splash,
-        onGenerateRoute: AppRoutes.generateRoute,
-        locale: Locale(appSettingsProvider.currentLanguage),
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-      ),
+    return BlocBuilder<AppSettingsCubit, AppSettingsState>(
+      builder: (context, state) {
+        return ScreenUtilInit(
+          designSize: const Size(375, 812),
+          splitScreenMode: true,
+          minTextAdapt: true,
+          builder: (context, child) => ToastificationWrapper(
+            child: MaterialApp(
+              // showPerformanceOverlay: true,
+              debugShowCheckedModeBanner: false,
+              builder: EasyLoading.init(),
+              themeMode: state.themeMode,
+              theme: AppTheme.lightMode,
+              darkTheme: AppTheme.darkMode,
+              title: "Event App",
+              initialRoute: AppRoutesName.homeScreen,
+              onGenerateRoute: AppRoutes.generateRoute,
+              locale: Locale(state.language),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+            ),
+          ),
+        );
+      },
     );
   }
 }
